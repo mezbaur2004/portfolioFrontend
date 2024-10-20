@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const URL= import.meta.env.VITE_API_BASE_URL;
 import axios from 'axios';
 import '../css/allProjects.css';
 import Footer from "./footer.jsx";
@@ -8,7 +9,7 @@ const AllProjects = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3030/api/projects')
+        axios.get(`${URL}/projects`)
             .then(response => {
                 setProjects(response.data);
             })

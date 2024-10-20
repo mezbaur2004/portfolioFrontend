@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const URL= import.meta.env.VITE_API_BASE_URL;
 import axios from 'axios';
 import '../css/projectsUpdate.css';
 
@@ -18,7 +19,7 @@ const ProjectsUpdate = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await axios.get('http://localhost:3030/api/projects');
+                const response = await axios.get(`${URL}/projects`);
                 setProjects(response.data);
             } catch (err) {
                 console.error('Error fetching projects:', err);
@@ -58,11 +59,11 @@ const ProjectsUpdate = () => {
 
             if (currentProjectId) {
                 // PUT request for updating an existing project
-                await axios.put(`http://localhost:3030/api/projects/${currentProjectId}`, formData, config);
+                await axios.put(`${URL}/projects/${currentProjectId}`, formData, config);
                 alert('Project updated successfully');
             } else {
                 // POST request for creating a new project
-                await axios.post('http://localhost:3030/api/projects', formData, config);
+                await axios.post(`${URL}/projects`, formData, config);
                 alert('Project created successfully');
             }
 
@@ -75,7 +76,7 @@ const ProjectsUpdate = () => {
                 image: '',
             });
             setCurrentProjectId(null);
-            const response = await axios.get('http://localhost:3030/api/projects');
+            const response = await axios.get(`${URL}/projects`);
             setProjects(response.data);
         } catch (err) {
             if (err.response) {
@@ -119,11 +120,11 @@ const ProjectsUpdate = () => {
                 },
             };
 
-            await axios.delete(`http://localhost:3030/api/projects/${projectId}`, config);
+            await axios.delete(`${URL}/projects/${projectId}`, config);
             alert('Project deleted successfully');
 
             // Fetch updated projects list
-            const response = await axios.get('http://localhost:3030/api/projects');
+            const response = await axios.get(`${URL}/projects`);
             setProjects(response.data);
         } catch (err) {
             if (err.response) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const URL= import.meta.env.VITE_API_BASE_URL;
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -11,7 +12,7 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             // Send POST request to the login API
-            const response = await axios.post('http://localhost:3030/api/login', { password });
+            const response = await axios.post(`${URL}/login`, { password });
 
             // Check if the response contains the JWT token
             if (response.data.token) {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+const URL= import.meta.env.VITE_API_BASE_URL;
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../css/projects.css';
 
@@ -8,16 +9,17 @@ const Projects = () => {
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:3030/api/projects')
+        axios.get(`${URL}/projects`)
             .then(response => {
-                setProjects(response.data);
+                console.log(response.data); // Inspect the response
+                setProjects(Array.isArray(response.data) ? response.data : []);
             })
             .catch(error => {
                 console.error('Error fetching projects:', error);
             });
     }, []);
 
-    const projectsToShow = projects.slice(0, 2); // Always show 2 projects on the main page
+    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 2) : []; // Ensure it's an array
 
     return (
         <section id="projects" className="projects-section">
@@ -43,8 +45,6 @@ const Projects = () => {
                             </a>
                         </div>
                     ))}
-
-                    {/* Show 'Show All' button only if there are more than 2 projects */}
                     {projects.length > 2 && (
                         <div className="text-right mt-3">
                             <Link to="/all-projects" className="btn btn-primary">

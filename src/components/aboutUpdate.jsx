@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+const URL= import.meta.env.VITE_API_BASE_URL;
 import axios from 'axios';
 import '../css/aboutUpdate.css'
 
@@ -19,7 +20,7 @@ const AboutUpdate = () => {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:3030/api/about', {
+                const response = await axios.get(`${URL}/about`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Add the token in the Authorization header
                     },
@@ -64,7 +65,7 @@ const AboutUpdate = () => {
             };
 
             // PUT request for both creating and updating about data
-            const response = await axios.put('http://localhost:3030/api/about', aboutData, config);
+            const response = await axios.put(`${URL}/about`, aboutData, config);
 
             if (response.status === 200 || response.status === 201) {
                 alert('About section saved successfully');
