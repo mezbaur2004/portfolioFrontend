@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-const URL= import.meta.env.VITE_API_BASE_URL;
+import URL from"../assets/variables.js"
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../css/projects.css';

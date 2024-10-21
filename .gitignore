@@ -2,3 +2,5 @@ node_modules/
 .env
 .gitattributes
 eslint.config.js
+dist
+.idea
