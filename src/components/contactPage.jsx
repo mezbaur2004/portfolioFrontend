@@ -4,7 +4,6 @@ import ContactForm from "./contactForm.jsx";
 const ContactPage = () => {
     return (
         <div>
-            <Header/>
             <ContactForm/>
         </div>
     )
