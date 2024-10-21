@@ -201,8 +201,8 @@ body {
     line-height: 1.6;
     color: #fff;
 }
-
 /* Media Queries for responsiveness */
+
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
@@ -225,6 +225,8 @@ body {
     .to-flex{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     .container-fluid{
         display: flex;
@@ -232,6 +234,10 @@ body {
         justify-content: space-between;
         padding: 5px;
     }
+    .navbar-toggler{
+        margin-left: 150px;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -239,11 +245,16 @@ body {
     .to-flex{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     .container-fluid{
         display: flex;
         flex-direction:row;
         justify-content: space-between;
         padding: 5px;
+    }
+    .navbar-toggler{
+        margin-left: 1500px;
     }
 }
