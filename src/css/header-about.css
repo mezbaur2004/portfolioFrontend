@@ -228,13 +228,22 @@ body {
     }
     .container-fluid{
         display: flex;
-        flex-direction: column;
+        flex-direction:row;
         justify-content: space-between;
-        align-items: center;
         padding: 5px;
     }
 }
 
 @media (max-width: 1000px) {
     transform: scale(0.9);
+    .to-flex{
+        display: flex;
+        flex-direction: row;
+    }
+    .container-fluid{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        padding: 5px;
+    }
 }
