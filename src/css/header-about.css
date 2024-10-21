@@ -222,4 +222,12 @@ body {
         transform-origin: top left;
         margin-bottom: -100px;
     }
+    .to-flex{
+        display: flex;
+        flex-direction: row;
+    }
+    .container-fluid{
+        display: flex;
+        flex-direction: column;
+    }
 }
