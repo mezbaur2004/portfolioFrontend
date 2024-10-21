@@ -229,7 +229,9 @@ body {
     .container-fluid{
         display: flex;
         flex-direction: column;
-        align-content: space-between;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
     }
 }
 
