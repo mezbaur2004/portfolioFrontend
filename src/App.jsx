@@ -7,6 +7,7 @@ import LoginPage from "./components/loginPage.jsx";
 import AdminPage from "./components/adminPage.jsx";
 import AboutUpdate from "./components/aboutUpdate.jsx";
 import ProjectsUpdate from "./components/projectsUpdate.jsx";
+import DpUpdate from "./components/dpUpdate.jsx";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/about" element={<AboutUpdate />} />
           <Route path="/admin/projects" element={<ProjectsUpdate />} />
+          <Route path="/admin/dp" element={<DpUpdate />} />
         </Routes>
       </div>
     </Router>
