@@ -229,5 +229,10 @@ body {
     .container-fluid{
         display: flex;
         flex-direction: column;
+        align-content: space-between;
     }
+}
+
+@media (max-width: 1000px) {
+    transform: scale(0.9);
 }
