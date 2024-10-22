@@ -40,7 +40,7 @@ const Projects = () => {
                                 </a>
                             )}
                             <p>{project.description}</p>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-warning">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-warning another">
                                 View Project
                             </a>
                         </div>

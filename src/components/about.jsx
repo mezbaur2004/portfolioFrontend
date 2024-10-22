@@ -29,6 +29,12 @@ const About = () => {
                         <SlideInText/>
                         <div className="contact-button-container">
                             <Link to="/contact" className="btn btn-contact">Contact Me</Link>
+
+                        </div>
+                        <div className="cv-button-container">
+                            <button className="style"><a className="st"
+                                                         href="https://drive.usercontent.google.com/download?id=15_ezYxoHMuibSEPLI7TtT_PXptTc70g4&export=download&authuser=0&confirm=t&uuid=9365d928-b87d-4fe5-99b1-29f0617d83f5&at=AN_67v1nN0PeE7-OMBXvaQmoFXCU:1729601651011">Download
+                                CV <i className="fa-solid fa-download"></i></a></button>
                         </div>
                     </div>
                     <div className="right-side">
@@ -38,7 +44,7 @@ const About = () => {
             </div>
             <section id="about-details" className="about-details-section">
                 <div className="container">
-                    <h2 className="section-title text-warning">About Me</h2>
+                <h2 className="section-title text-warning">About Me</h2>
                     <div
                         className="section-description text-light"
                         dangerouslySetInnerHTML={{__html: aboutDescription}}

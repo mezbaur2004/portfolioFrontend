@@ -69,6 +69,13 @@
     transform: translateY(-5px);
 }
 
+.another{
+    color: #222222 !important;
+}
+.another:hover{
+    background-color: darkgoldenrod;
+}
+
 
 /* Responsive design */
 @media (max-width: 1200px) {

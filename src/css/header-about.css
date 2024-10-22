@@ -169,20 +169,21 @@ body {
 .btn-contact {
     background-color: #ffc107;
     color: #212529;
-    margin-bottom: 30px;
-    padding: 1px 7px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 2px 20px;
     font-size: 1.2rem;
     border-radius: 10px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn-contact:hover {
     background-color: #e0a800;
     opacity: 80%;
     color: #212529;
-    transform: scale(1.05);
-    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .about-details-section {
@@ -201,6 +202,36 @@ body {
     line-height: 1.6;
     color: #fff;
 }
+
+.style{
+    padding: 15px 1px;
+    margin-bottom: 50px;
+    border: 2px;
+    border-color: #e0a800;
+    border-radius: 25px;
+    background-color: #007bff;
+    transform: scale(0.6);
+    transition: 0.3s ease-in-out;
+
+}
+
+.style:hover{
+    background-color: #0056b3;
+    transform: scale(0.63);
+    transition: 0.3s ease-in-out;
+}
+
+.st{
+    text-decoration: none;
+    color: goldenrod;
+    font-size: x-large;
+    font-weight: bolder;
+}
+.fa-download{
+    margin-left: 20px;
+    font-size: xx-large;
+}
+
 /* Media Queries for responsiveness */
 
 @media (max-width: 768px) {
@@ -255,6 +286,6 @@ body {
         padding: 5px;
     }
     .navbar-toggler{
-        margin-left: 1500px;
+        margin-left: 00px;
     }
 }
