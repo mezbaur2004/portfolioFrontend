@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import URL from"../assets/variables.js"
+import dp from '../../public/photo_2.jpg'
 
 const Dp = () => {
     const [imageSrc, setImageSrc] = useState(''); // State to hold the image source
@@ -13,8 +14,9 @@ const Dp = () => {
                 const response = await axios.get(`${URL}/dp`); // Fetch image from the API
                 setImageSrc(response.data.dp); // Assuming the API returns an object with the key 'dp' containing the image URL
             } catch (err) {
-                setError('Error fetching image');
-                console.error('Error fetching image:', err);
+                setImageSrc(dp)
+                //setError('Error fetching image');
+                //console.error('Error fetching image:', err);
             } finally {
                 setLoading(false); // Set loading to false after fetching
             }
