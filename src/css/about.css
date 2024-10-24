@@ -119,24 +119,27 @@
 }
 
 .btn-contact {
-    background-color: #ffc107;
-    color: #212529;
+    background-color: #ffc107 !important; /* Yellow background */
+    color: #212529 !important; /* Dark text */
     margin-right: 5px;
     margin-bottom: 10px;
-    padding: 2px 20px;
+    padding: 4px 40px !important; /* Adjusted padding for width */
     font-size: 1.2rem;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    width: 250px !important; /* Make the button wider */
+    transition: 0.4s ease-in-out;
 }
 
 .btn-contact:hover {
-    background-color: #e0a800;
-    opacity: 80%;
-    color: #212529;
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
+    background-color: #b38f24 !important; /* Darker yellow on hover */
+    opacity: 90% !important;
+    color: #212529 !important;
+    transform: scale(1.05) !important; /* Slightly scale on hover */
+    transition: 0.4s ease-in-out;
 }
+
+
 
 .about-details-section {
     padding: 50px 0;
@@ -158,8 +161,6 @@
 .style {
     padding: 15px 1px;
     margin-bottom: 50px;
-    border: 2px;
-    border-color: #e0a800;
     border-radius: 25px;
     background-color: #007bff;
     transform: scale(0.6);

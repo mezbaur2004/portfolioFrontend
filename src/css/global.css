@@ -5,3 +5,15 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+.navbar {
+    position: sticky; /* Make the navbar fixed */
+    top: 0; /* Stick to the top of the viewport */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    background-color: #222222; /* Background color */
+    padding: 1rem; /* Padding */
+    z-index: 1000; /* Ensure it stays above other content */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+}

@@ -29,7 +29,8 @@ const About = () => {
                         <h3 className="description-title">MERN Stack Developer</h3>
                         <SlideInText/>
                         <div className="contact-button-container">
-                            <Link to="/contact" className="btn btn-contact">Contact Me</Link>
+                            <Link to="/contact" className="btn btn-contact">Contact Me <i
+                                className="fa-solid fa-arrow-right"></i></Link>
 
                         </div>
                         <div className="cv-button-container">
