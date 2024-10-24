@@ -10,7 +10,7 @@ const Dp = () => {
     useEffect(() => {
         const fetchImage = async () => {
             try {
-                const response = await axios.get('http:/localhost:3030/api/dp'); // Fetch image from the API
+                const response = await axios.get(`${URL}/dp`); // Fetch image from the API
                 setImageSrc(response.data.dp); // Assuming the API returns an object with the key 'dp' containing the image URL
             } catch (err) {
                 setError('Error fetching image');

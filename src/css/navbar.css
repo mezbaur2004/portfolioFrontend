@@ -4,21 +4,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* General Styles for Navbar */
-/*.navbar {*/
-/*    position: fixed; !* Make the navbar fixed *!*/
-/*    top: 0; !* Stick to the top of the viewport *!*/
-/*    left: 0; !* Align to the left *!*/
-/*    width: 100%; !* Full width *!*/
-/*    background-color: #222222; !* Background color *!*/
-/*    padding: 1rem; !* Padding *!*/
-/*    z-index: 1000; !* Ensure it stays above other content *!*/
-/*    display: flex; !* Use flexbox for layout *!*/
-/*    justify-content: space-between; !* Space between items *!*/
-/*    align-items: center; !* Center items vertically *!*/
-/*}*/
-
-
 .navbar-brand {
     color: white !important;
     font-weight: bolder;
@@ -32,13 +17,13 @@ body {
     display: flex;
     gap: 1rem;
     position: relative; /* Positioning context for the underline */
+    overflow: hidden; /* Hide overflowing elements */
 }
 
 .nav-links a {
     color: #adb5bd;
     text-decoration: none;
     position: relative; /* Positioning context for the pseudo-element */
-    overflow: hidden; /* Hide overflowing elements */
 }
 
 .nav-links a::after {
@@ -76,10 +61,17 @@ body {
         width: 200px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         z-index: 1000;
+        border-radius: 8px; /* Add border-radius to dropdown */
+        padding: 10px; /* Add padding to dropdown */
+        transition: max-height 0.3s ease-in-out; /* Smoother transition */
+        max-height: 0; /* Start with max-height of 0 */
+        overflow: hidden; /* Hide overflowing content */
     }
 
     .nav-links.active {
         display: flex; /* Show links when active */
+        max-height: 300px; /* Set a max-height for the dropdown */
+        transition: max-height 0.5s ease-in-out; /* Smoother transition with delay */
     }
 
     .dropdown {
