@@ -33,7 +33,7 @@ const About = () => {
                         </div>
                         <div className="cv-button-container">
                             <button className="style"><a className="st"
-                                                         href="https://drive.google.com/file/d/1ZwWdR96CruXi11I2BnZQWXIs0f843sZk/view?usp=drive_link">Download
+                                                         href="https://drive.usercontent.google.com/download?id=1ZwWdR96CruXi11I2BnZQWXIs0f843sZk&export=download&authuser=0">Download
                                 CV <i className="fa-solid fa-download"></i></a></button>
                         </div>
                     </div>
