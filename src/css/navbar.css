@@ -1,4 +1,4 @@
-/* General styles for the navbar */
+/* General Styles for Navbar */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -8,63 +8,74 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #282c34;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #333;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar-brand {
-    font-weight: bold;
+    color: white;
     font-size: 1.5rem;
-    color: #ffffff;
-    text-decoration: none;
 }
 
-.navbar-nav {
-    list-style-type: none;
+/* Navbar Links */
+.nav-links {
     display: flex;
-    margin: 0;
-    padding: 0;
+    gap: 1rem;
+    position: relative; /* Positioning context for the underline */
 }
 
-.nav-item {
-    position: relative;
-    margin-left: 20px;
-}
-
-.nav-link {
-    color: #ffffff;
+.nav-links a {
+    color: white;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    position: relative; /* Positioning context for the pseudo-element */
+    overflow: hidden; /* Hide overflowing elements */
 }
 
-.nav-link:hover {
-    color: #d1d1d1;
-}
-
-/* Dropdown Styles */
-.dropdown-menu {
-    display: none;
+.nav-links a::after {
+    content: '';
     position: absolute;
-    background-color: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 10px;
-    padding: 10px 0;
-    border-radius: 4px;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #d1d1d1; /* Underline color */
+    transform: translateX(-50%) scaleX(0); /* Start hidden */
+    transition: transform 0.3s ease; /* Animation duration */
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
+.nav-links a:hover::after {
+    transform: translateX(-50%) scaleX(1); /* Show underline on hover */
 }
 
-.dropdown-item {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 20px;
-    display: block;
+/* Dropdown Menu for Smaller Screens */
+.dropdown {
+    display: none; /* Hidden by default */
+    font-size: 2rem; /* Larger font size for the icon */
+    color: white;
+    cursor: pointer;
 }
 
-.dropdown-item:hover {
-    background-color: #444;
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        right: 0;
+        background-color: #333;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .dropdown {
+        display: block; /* Show dropdown icon on smaller screens */
+    }
 }

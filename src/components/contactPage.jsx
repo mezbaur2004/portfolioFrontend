@@ -1,4 +1,4 @@
-import Header from "./header.jsx";
+import Header from "./navbar.jsx";
 import ContactForm from "./contactForm.jsx";
 
 const ContactPage = () => {

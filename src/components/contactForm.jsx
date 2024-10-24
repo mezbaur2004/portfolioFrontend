@@ -22,11 +22,25 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Replace with your actual service ID, template ID, and public key
-        emailjs.send('service_3frv55p', 'template_zdrp7ii', formData, 'm2FbwP8KXotwIWMDa')
+        // Combine all the data into the message field
+        const combinedMessage = `
+            Name: ${formData.name}
+            Email: ${formData.email}
+            Message: ${formData.message}
+        `;
+
+        // Create a new object to send to emailjs
+        const dataToSend = {
+            name: formData.name,
+            email: formData.email,
+            message: combinedMessage, // This is the combined message
+        };
+
+        // Use emailjs to send the combined data
+        emailjs.send('service_3frv55p', 'template_zdrp7ii', dataToSend, 'm2FbwP8KXotwIWMDa')
             .then((result) => {
                 console.log(result.text);
-                setIsSubmitted(true); // Show a success message
+                setIsSubmitted(true); // Show success message
             }, (error) => {
                 console.log(error.text);
             });
@@ -39,19 +53,20 @@ const ContactForm = () => {
         });
     };
 
-    // Redirect to homepage function
+    // Function to navigate back to homepage
     const goToHomePage = () => {
-        navigate('/'); // Navigates to the homepage
+        navigate('/'); // Navigates to homepage
     };
 
     return (
         <div className="container">
             <h2 className="section-title text-warning">Contact Me</h2>
 
+            {/* If form is submitted, show thank-you message */}
             {isSubmitted ? (
                 <div>
                     <p>Thank you for contacting me! I will get back to you soon.</p>
-                    {/* Big Button to navigate to homepage */}
+                    {/* Button to navigate to homepage */}
                     <button className="btn btn-primary btn-lg" onClick={goToHomePage}>
                         Go to Homepage
                     </button>
@@ -94,7 +109,11 @@ const ContactForm = () => {
                             required
                         ></textarea>
                     </div>
-                    <button type="submit" className="btn btn-primary">Send</button>
+
+                    {/* Submit button */}
+                    <button type="submit" className="btn btn-primary">
+                        Send
+                    </button>
                 </form>
             )}
         </div>

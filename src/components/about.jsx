@@ -4,6 +4,7 @@ import SlideInText from "../others/SlideInText.jsx";
 import { Link } from 'react-router-dom';
 import Dp from "../others/dp.jsx";
 import URL from"../assets/variables.js"
+import '../css/about.css'
 
 const About = () => {
     const [aboutDescription, setAboutDescription] = useState('');
