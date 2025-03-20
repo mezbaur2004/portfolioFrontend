@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import URL from "../assets/variables.js";
+import URL from "../others/variables.js"
 import axios from 'axios';
 import '../css/dpUpdate.css'; // Ensure this CSS file exists for styling
 
