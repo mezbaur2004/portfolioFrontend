@@ -24,7 +24,7 @@ const About = () => {
                 <div className="container">
                     <div className="left-side">
                         <h2 className="section-title text-warning">
-                            Hi, I&apos;m <span className="name">Mezbaur Are Rafi</span>
+                            Hi,  I&apos;m <span className="name">Mezbaur Are Rafi</span>
                         </h2>
                         <h3 className="description-title">MERN Stack Developer</h3>
                         <SlideInText/>
