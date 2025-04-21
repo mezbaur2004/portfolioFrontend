@@ -11,7 +11,7 @@ const Projects = () => {
     useEffect(() => {
         axios.get(`${URL}/projects`)
             .then(response => {
-                console.log(response.data); // Inspect the response
+                //console.log(response.data); // Inspect the response
                 setProjects(Array.isArray(response.data) ? response.data : []);
             })
             .catch(error => {
