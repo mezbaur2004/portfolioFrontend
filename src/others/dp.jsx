@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import URL from "../../../portfolio/portfolioFrontend/others/variables.js"
-import dp from '../../public/photo_2.jpg'
+import URL from "./variables.js"
+import dp from '/photo_2.jpg'
 
 const Dp = () => {
     const [imageSrc, setImageSrc] = useState(''); // State to hold the image source
