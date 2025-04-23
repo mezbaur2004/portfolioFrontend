@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import URL from "../others/variables.js"
+import URL from "../../others/variables.js"
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../css/projects.css';
+import '../../css/projects.css';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './sideBar.jsx';
+import Sidebar from '../components/admin/sideBar.jsx';
 
 const AdminPage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);

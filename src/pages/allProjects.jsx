@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import URL from "../others/variables.js"
 import axios from 'axios';
 import '../css/allProjects.css';
-import Footer from "./footer.jsx";
+import Footer from "../components/main/footer.jsx";
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const AllProjects = () => {

@@ -116,27 +116,60 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+
 }
 
-.btn-contact {
-    background-color: #ffc107 !important; /* Yellow background */
-    color: #212529 !important; /* Dark text */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.bt-contact {
+    background-color: #fbc845;
+    color: #212529;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    padding: 4px 50px;
+    font-size: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    width: 230px;
+    transition: 0.4s ease-in-out;
+}
+
+.bt-contact:hover {
+    background-color: #d1af61;
+    opacity: 90%;
+    color: #212529;
+    transform: scale(1.05);
+    transition: 0.4s ease-in-out;
+}
+
+.bt-download{
+    background-color: #2f6bff;
+    color: gold;
     margin-right: 5px;
     margin-bottom: 10px;
-    padding: 4px 40px !important; /* Adjusted padding for width */
-    font-size: 1.2rem;
-    border-radius: 14px !important;
-    text-decoration: none !important;
-    width: 250px !important; /* Make the button wider */
+    padding: 4px 40px;
+    font-size: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    width: 230px;
     transition: 0.4s ease-in-out;
 }
+.fa-download{
+    font-size: 1.5rem !important;
+}
 
-.btn-contact:hover {
-    background-color: #b38f24 !important; /* Darker yellow on hover */
-    opacity: 90% !important;
-    color: #212529 !important;
-    transform: scale(1.05) !important; /* Slightly scale on hover */
-    transition: 0.4s ease-in-out;
+.bt-download:hover {
+    background-color: #6585ad;
+    transform: scale(1.05);
+    color: #000000;
 }
 
 

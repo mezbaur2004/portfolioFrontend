@@ -7,6 +7,14 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.blackk{
+    background-color: #191818;
+    color: #a09e9e;
+}
+ .black{
+     background-color: #000;
+ }
+
 h2 {
     text-align: center;
     color: #333;

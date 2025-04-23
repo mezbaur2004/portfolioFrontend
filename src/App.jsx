@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./components/homePage.jsx";
-import ContactPage from "./components/contactPage";
-import AllProjects from "./components/allProjects.jsx";
-import LoginPage from "./components/loginPage.jsx";
-import AdminPage from "./components/adminPage.jsx";
-import AboutUpdate from "./components/aboutUpdate.jsx";
-import ProjectsUpdate from "./components/projectsUpdate.jsx";
-import DpUpdate from "./components/dpUpdate.jsx";
+import HomePage from "./pages/homePage.jsx";
+import ContactPage from "./pages/contactPage.jsx";
+import AllProjects from "./pages/allProjects.jsx";
+import LoginPage from "./pages/loginPage.jsx";
+import AdminPage from "./pages/adminPage.jsx";
+import AboutUpdate from "./pages/aboutUpdate.jsx";
+import ProjectsUpdate from "./pages/projectsUpdate.jsx";
+import DpUpdate from "./pages/dpUpdate.jsx";
 
 const App = () => {
   return (

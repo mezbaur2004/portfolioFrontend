@@ -20,7 +20,7 @@ const DpUpdate = () => {
                     return;
                 }
 
-                const response = await axios.get(`${URL}/about`, {
+                const response = await axios.get(`${URL}/dp`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -73,7 +73,7 @@ const DpUpdate = () => {
             const dpPayload = { dp: dpData }; // Prepare payload with the DP URL
 
             // PUT request for both creating and updating DP
-            const response = await axios.put(`${URL}/about`, dpPayload, config);
+            const response = await axios.put(`${URL}/dp`, dpPayload, config);
 
             if (response.status === 200 || response.status === 201) {
                 setSuccess('DP updated successfully');
@@ -91,22 +91,21 @@ const DpUpdate = () => {
     };
 
     return (
-        <div className="dp-update-container">
+        <div className="dp-update-container black">
             <h2>{isNew ? 'Add Display Picture Link' : 'Update Display Picture Link'}</h2>
             {error && <p className="error-message">{error}</p>}
             {success && <p className="success-message">{success}</p>}
 
             {/* Display existing DP preview if it exists */}
-            {!isNew && (
-                <div className="existing-dp">
-                    <h3>Current Display Picture:</h3>
-                    <img src={preview} alt="Current DP" className="dp-preview" />
-                </div>
-            )}
+            {/*{!isNew && (*/}
+            {/*    <div className="existing-dp">*/}
+            {/*        <h3>Current Display Picture:</h3>*/}
+            {/*        <img src={preview} alt="Current DP" className="dp-preview" />*/}
+            {/*    </div>*/}
+            {/*)}*/}
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="dp">Display Picture URL</label>
                     <input
                         type="text"
                         id="dp"
@@ -119,7 +118,7 @@ const DpUpdate = () => {
                 </div>
                 {preview && (
                     <div className="preview-container">
-                        <h3>New DP Preview:</h3>
+                        <h3 className="blackk">{`Preview:`}</h3>
                         <img src={preview} alt="New DP Preview" className="dp-preview" />
                     </div>
                 )}

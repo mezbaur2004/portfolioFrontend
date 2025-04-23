@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/navbar.css'; // Add your custom styles
+import '../../css/navbar.css'; // Add your custom styles
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false); // State to toggle dropdown
