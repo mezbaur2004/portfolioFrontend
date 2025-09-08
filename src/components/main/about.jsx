@@ -9,7 +9,6 @@ import '../../css/about.css'
 const About = () => {
     const [aboutDescription, setAboutDescription] = useState('');
 
-
     useEffect(() => {
         axios.get(`${URL}/about`)
             .then((response) => {
