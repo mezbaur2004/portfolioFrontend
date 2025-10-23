@@ -11,7 +11,6 @@ const Projects = () => {
     useEffect(() => {
         axios.get(`${URL}/projects`)
             .then(response => {
-                //console.log(response.data); // Inspect the response
                 setProjects(Array.isArray(response.data) ? response.data : []);
             })
             .catch(error => {
@@ -19,7 +18,7 @@ const Projects = () => {
             });
     }, []);
 
-    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 2) : []; // Ensure it's an array
+    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 2) : [];
 
     return (
         <section id="projects" className="projects-section">
