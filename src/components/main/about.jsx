@@ -34,7 +34,7 @@ const About = () => {
 
                             <a
                                 className="bt-download"
-                                href="https://drive.usercontent.google.com/download?id=1DYqFXCUzRb8ueR0v9KDKl_Nguua6JUhl&export=download&authuser=0&confirm=t&uuid=ec2a5f9b-b202-470e-8862-c451fcde892d&at=AKSUxGOCM6yDC1f61yRMhjHyWyQP:1762324224191"
+                                href="https://drive.usercontent.google.com/download?id=1jFCfjOs20SJTLgcRKkSbEJCYelglf8Zq&export=download&authuser=0&confirm=t&uuid=b86c70a7-1563-4173-9da5-ad8970726255&at=AKSUxGPb817-RH3msQ_DLQ_QXmQk:1762328150562"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
