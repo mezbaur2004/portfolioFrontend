@@ -13,7 +13,7 @@ const Skills = () => {
                     </div>
                     <div className="skill-item">
                         <h3>Frontend</h3>
-                        <p>React.js, Next.js, TypeScript, Tailwind CSS, Redux Toolkit, Bootstrap, Formik, Yup</p>
+                        <p>React.js, Next.js, Tailwind CSS, Redux Toolkit, Bootstrap, Formik, Yup</p>
                     </div>
                     <div className="skill-item">
                         <h3>Tools & Deployment</h3>
