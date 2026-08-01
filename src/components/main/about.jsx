@@ -24,7 +24,7 @@ const About = () => {
             <div className="hero">
                 <div className="section-container hero-grid">
                     <div className="hero-content">
-                        <h3 className="description-title">Software Engineer | MERN • Moodle • WooCommerce • Linux</h3>
+                        <h3 className="description-title">Software Engineer</h3>
                         <h1 className="hero-title">
                             Hi, I&apos;m <span className="name">Mezbaur Are Rafi</span>
                         </h1>
