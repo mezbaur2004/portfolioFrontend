@@ -26,7 +26,7 @@ const Projects = () => {
         <section id="projects" className="projects-section" ref={ref}>
             <div className="section-container">
                 <div className="section-heading">
-                    <h2 className="section-title text-warning">My Projects</h2>
+                    <h2 className="section-title text-warning">Featured Projects</h2>
                 </div>
                 <div className="projects-list">
                     {projectsToShow.map((project, index) => (
