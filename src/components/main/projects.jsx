@@ -20,7 +20,7 @@ const Projects = () => {
             });
     }, []);
 
-    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 2) : [];
+    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 4) : [];
 
     return (
         <section id="projects" className="projects-section" ref={ref}>
@@ -68,7 +68,7 @@ const Projects = () => {
                         </div>
                     ))}
                 </div>
-                {projects.length > 2 && (
+                {projects.length > 4 && (
                     <div className="show-all-wrap">
                         <Link to="/all-projects" className="btn-outline">
                             Show All Projects
