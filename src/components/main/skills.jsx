@@ -4,19 +4,19 @@ import useReveal from "../../others/useReveal.js";
 
 const skillGroups = [
     {
-        title: 'Backend & Databases',
-        icon: 'fa-solid fa-server',
-        text: 'Node.js, Express.js, MongoDB (Mongoose), PostgreSQL, REST APIs, Third-party API Integration',
-    },
-    {
-        title: 'Frontend',
+        title: 'Full Stack Development',
         icon: 'fa-solid fa-code',
-        text: 'React.js, Next.js, Tailwind CSS, Redux Toolkit, Bootstrap, Formik, Yup',
+        text: 'MERN Stack, REST APIs, Authentication, WebSockets, Third-party API Integration',
     },
     {
-        title: 'Tools & Deployment',
-        icon: 'fa-solid fa-screwdriver-wrench',
-        text: 'GitHub, Postman, Render, Vercel',
+        title: 'LMS & eCommerce',
+        icon: 'fa-solid fa-cart-shopping',
+        text: 'Moodle LMS, WooCommerce, Shopify, Custom Backend Integration, Order Synchronization, Payment Gateway Integration',
+    },
+    {
+        title: 'Deployment & Tools',
+        icon: 'fa-solid fa-server',
+        text: 'Linux, GitHub, VPS Management, Vercel, Render, Postman',
     },
 ];
 
@@ -27,7 +27,7 @@ const Skills = () => {
         <section id="skills" className="skills-section" ref={ref}>
             <div className="section-container">
                 <div className="section-heading">
-                    <h2 className="section-title text-warning">My Skills</h2>
+                    <h2 className="section-title text-warning">Technical Skills</h2>
                 </div>
                 <div className="skills-list">
                     {skillGroups.map((skill, index) => (
