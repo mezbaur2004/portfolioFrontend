@@ -8,16 +8,20 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeDropdown = () => {
+        setIsOpen(false);
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-brand">{`<Rafi/>`}</div>
             <div className={`nav-links ${isOpen ? 'active' : ''}`}>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" onClick={closeDropdown}>About</a>
+                <a href="#skills" onClick={closeDropdown}>Skills</a>
+                <a href="#projects" onClick={closeDropdown}>Projects</a>
+                <a href="#contact" onClick={closeDropdown}>Contact</a>
             </div>
-            <div className="dropdown" onClick={toggleDropdown}>
+            <div className="dropdown" onClick={toggleDropdown} aria-label="Toggle navigation">
                 &#9776; {/* Hamburger icon */}
             </div>
         </nav>
