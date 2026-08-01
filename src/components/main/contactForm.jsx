@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useNavigate } from 'react-router-dom';
+import '../../css/contact-form.css'
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -64,14 +65,18 @@ const ContactForm = () => {
 
             {/* If form is submitted, show thank-you message */}
             {isSubmitted ? (
-                <div>
-                    <p>Thank you for contacting me! I will get back to you soon.</p>
-                    {/* Button to navigate to homepage */}
-                    <button className="btn btn-primary btn-lg" onClick={goToHomePage}>
-                        Go to Homepage
-                    </button>
-                </div>
-            ) : (
+    <div className="success-box">
+        <h3 className="text-success mb-3">✅ Message Sent!</h3>
+        <p>Thank you for contacting me. I'll get back to you as soon as possible.</p>
+
+        <button
+            className="btn btn-primary"
+            onClick={goToHomePage}
+        >
+            Back to Home
+        </button>
+    </div>
+) : (
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
