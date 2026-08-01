@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import URL from "../others/variables.js"
 import axios from 'axios';
+import '../css/projects.css';
 import '../css/allProjects.css';
 import Footer from "../components/main/footer.jsx";
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
+import useReveal from "../others/useReveal.js";
 
 const AllProjects = () => {
     const [projects, setProjects] = useState([]);
+    const [gridRef, gridVisible] = useReveal();
 
     useEffect(() => {
         axios.get(`${URL}/projects`)
@@ -19,51 +22,60 @@ const AllProjects = () => {
     }, []);
 
     return (
-        <div>
-            <div className="d-flex flex-row justify-content-between m-1">
-                <h1>{`<Rafi/>`}</h1>
-                    <div>
-                        <Link to="/" className="btn btn-outline-primary">
-                            Go to Homepage
-                        </Link>
-                    </div>
+        <div className="all-projects-page">
+            <header className="full-topbar">
+                <div className="section-container full-topbar-inner">
+                    <span className="full-topbar-brand">{`<Rafi/>`}</span>
+                    <Link to="/" className="btn-outline">
+                        Go to Homepage
+                    </Link>
+                </div>
+            </header>
 
-            </div>
-            <section id="full-display-projects" className="projects-full-section">
-                <h2 className="full-section-title text-warning">All Projects</h2>
-                <div className="full-container">
+            <section id="full-display-projects" className="projects-full-section" ref={gridRef}>
+                <div className="section-container">
+                    <div className="section-heading">
+                        <h2 className="section-title text-warning">All Projects</h2>
+                    </div>
 
                     {/* CSS Grid for the projects layout */}
                     <div className="full-projects-grid">
                         {projects.map((project, index) => (
-                            <div key={index} className="full-project-item">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="full-project-image"
-                                />
-                                <h3>{project.title}</h3>
-                                {project.gitHubLink && (
-                                    <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer"
-                                       className="btn btn-outline-light ml-2">
-                                        GitHub Repository
-                                    </a>
-                                )}
-                                <p>{project.description}</p>
-                                <a href={project.link} target="_blank" rel="noopener noreferrer"
-                                   className="btn btn-warning">
-                                    View Project
-                                </a>
+                            <div
+                                key={index}
+                                className={`project-item reveal reveal-delay-${(index % 3) + 1} ${gridVisible ? 'is-visible' : ''}`}
+                            >
+                                <div className="project-image-wrap">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="project-image"
+                                    />
+                                </div>
+                                <div className="project-body">
+                                    <h3>{project.title}</h3>
+                                    <p>{project.description}</p>
+                                    <div className="project-actions">
+                                        {project.gitHubLink && (
+                                            <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer"
+                                               className="btn-outline">
+                                                <i className="fa-brands fa-github"></i> Repository
+                                            </a>
+                                        )}
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer"
+                                           className="btn-solid">
+                                            View Project <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
-
-
                 </div>
 
                 {/* "Go to Homepage" Button */}
-                <div className="text-center mt-4 p-2">
-                    <Link to="/" className="btn btn-outline-primary p-3">
+                <div className="show-all-wrap">
+                    <Link to="/" className="btn-outline">
                         Go to Homepage
                     </Link>
                 </div>
