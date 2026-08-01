@@ -176,7 +176,7 @@
 .circular-image-container::before {
     content: '';
     position: absolute;
-    inset: -12px;
+    inset: -3px;
     border-radius: 50%;
     background: conic-gradient(from 0deg, #fbbf24, #f97316, #38bdf8, #fbbf24);
     animation: spin 8s linear infinite;
