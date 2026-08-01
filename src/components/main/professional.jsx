@@ -37,11 +37,11 @@ const Professional = () => {
                         </p>
 
                         <ul className="experience-list">
-                            <li>Contributed to the development, configuration, and ongoing improvement of Moodle LMS, including feature enhancements, reporting, plugin evaluation, and workflow optimization.</li>
-                            <li>Developed and maintained NodeJs application and RESTful APIs to support business requirements and third-party integrations.</li>
-                            <li>Developed and supported WordPress, WooCommerce, and Shopify solutions, including custom backend integrations and order synchronization.</li>
-                            <li>Supported Linux VPS operations through deployment assistance, production troubleshooting, performance monitoring, backup procedures, and routine maintenance.</li>
-                            <li>Integrated authentication systems, payment gateways, and third-party APIs based on project requirements.</li>
+                            <li>Customized and maintained Moodle LMS, implementing feature enhancements, reports, plugin evaluation, and resolving production issues.</li>
+                            <li>Developed Node.js applications and RESTful APIs for business automation and third-party integrations.</li>
+                            <li>Developed and launched a Shopify e-commerce website with SEO optimization, generating customer inquiries and successful online payments before any marketing campaign.</li>
+                            <li>Supported Linux production servers through deployments, backups, monitoring, and critical production troubleshooting.</li>
+                            <li>Integrated payment gateways, authentication, and third-party APIs with custom backend solutions.</li>
                         </ul>
                     </div>
 
