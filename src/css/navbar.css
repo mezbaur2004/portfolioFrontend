@@ -1,4 +1,4 @@
-.navbar {
+.custom-navbar {
     position: sticky;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     border-bottom: 1px solid var(--border);
 }
 
-.navbar-brand {
+.custom-navbar-brand {
     font-weight: 800;
     font-size: 1.4rem;
     letter-spacing: 0.02em;
