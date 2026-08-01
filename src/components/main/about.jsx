@@ -4,10 +4,12 @@ import SlideInText from "../../others/SlideInText.jsx";
 import { Link } from 'react-router-dom';
 import Dp from "../../others/dp.jsx";
 import URL from "../../others/variables.js"
+import useReveal from "../../others/useReveal.js";
 import '../../css/about.css'
 
 const About = () => {
     const [aboutDescription, setAboutDescription] = useState('');
+    const [detailsRef, detailsVisible] = useReveal();
 
     useEffect(() => {
         axios.get(`${URL}/about`)
@@ -19,13 +21,13 @@ const About = () => {
 
     return (
         <section id="about" className="about-section">
-            <div className="smaller">
-                <div className="container">
-                    <div className="left-side">
-                        <h2 className="section-title text-warning">
-                            Hi, I&apos;m <span className="name">Mezbaur Are Rafi</span>
-                        </h2>
+            <div className="hero">
+                <div className="section-container hero-grid">
+                    <div className="hero-content">
                         <h3 className="description-title">Software Engineer</h3>
+                        <h1 className="hero-title">
+                            Hi, I&apos;m <span className="name">Mezbaur Are Rafi</span>
+                        </h1>
                         <SlideInText/>
                         <div className="button-group">
                             <Link to="/contact" className="bt-contact">
@@ -41,21 +43,25 @@ const About = () => {
                                <span>Download CV</span><i className="fa-solid fa-download"></i>
                             </a>
                         </div>
-
-
                     </div>
-                    <div className="right-side">
+                    <div className="hero-visual">
                         <Dp/>
                     </div>
                 </div>
             </div>
-            <section id="about-details" className="about-details-section">
-                <div className="container">
-                    <h2 className="section-title text-warning">About Me</h2>
-                    <div
-                        className="section-description text-light"
-                        dangerouslySetInnerHTML={{__html: aboutDescription}}
-                    />
+            <section
+                id="about-details"
+                ref={detailsRef}
+                className={`about-details-section reveal ${detailsVisible ? 'is-visible' : ''}`}
+            >
+                <div className="section-container">
+                    <div className="about-card">
+                        <h2 className="section-title text-warning">About Me</h2>
+                        <div
+                            className="section-description text-light"
+                            dangerouslySetInnerHTML={{__html: aboutDescription}}
+                        />
+                    </div>
                 </div>
             </section>
         </section>
