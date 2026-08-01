@@ -56,7 +56,7 @@ const About = () => {
             >
                 <div className="section-container">
                     <div className="about-card">
-                        <h2 className="section-title text-warning">About Me</h2>
+                        <h2 className="section-title text-warning">Professional Summary</h2>
                         <div
                             className="section-description text-light"
                             dangerouslySetInnerHTML={{__html: aboutDescription}}
