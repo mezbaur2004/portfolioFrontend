@@ -166,8 +166,8 @@
 
 .circular-image-container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 295px;
+    height: 295px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,8 +198,8 @@
 .circular-image {
     position: relative;
     z-index: 1;
-    width: 280px;
-    height: 280px;
+    width: 290px;
+    height: 290px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: var(--shadow);
