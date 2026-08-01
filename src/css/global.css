@@ -1,19 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #0a0e14;
+    --bg-soft: #0f141b;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-hover: rgba(255, 255, 255, 0.07);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #eef1f6;
+    --text-dim: #8d95a3;
+    --accent: #fbbf24;
+    --accent-2: #38bdf8;
+    --gradient: linear-gradient(135deg, #fbbf24 0%, #fb923c 55%, #f97316 100%);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.55);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #282c34;
-    color: white;
+    background: var(--bg);
+    color: var(--text);
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    position: relative;
 }
-.navbar {
-    position: sticky; /* Make the navbar fixed */
-    top: 0; /* Stick to the top of the viewport */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width */
-    background-color: #222222; /* Background color */
-    padding: 1rem; /* Padding */
-    z-index: 1000; /* Ensure it stays above other content */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
+
+/* Ambient background blobs — pure CSS, no canvas/JS, cheap on resources */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 45vw;
+    height: 45vw;
+    max-width: 620px;
+    max-height: 620px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.16;
+    z-index: 0;
+    pointer-events: none;
+    animation: drift 18s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+body::before {
+    background: #fb923c;
+    top: -10%;
+    left: -10%;
+}
+
+body::after {
+    background: #38bdf8;
+    bottom: -15%;
+    right: -10%;
+    animation-delay: -9s;
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(4%, 6%) scale(1.08); }
+}
+
+#root {
+    position: relative;
+    z-index: 1;
+}
+
+::selection {
+    background: var(--accent);
+    color: #1a1200;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--surface-hover);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Shared layout wrapper used by every homepage section (replaces the old
+   per-file ".container" definitions that were silently overriding each other) */
+.section-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 700;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-heading .section-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 16px auto 0;
+    border-radius: 4px;
+    background: var(--gradient);
+}
+
+.text-warning { color: var(--accent) !important; }
+.text-light { color: var(--text) !important; }
+
+/* Scroll-reveal utility — paired with the useReveal hook.
+   Cheap: only opacity + transform, both GPU-accelerated. */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1.is-visible { transition-delay: 0.08s; }
+.reveal-delay-2.is-visible { transition-delay: 0.16s; }
+.reveal-delay-3.is-visible { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
 }
