@@ -1,32 +1,31 @@
 .contact-section {
-    padding: 50px 0;
-    background-color: #222; /* Dark background */
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #ffc107; /* Yellow for warning */
+    padding: 90px 0 110px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 22px;
 }
 
 .social-links a {
-    font-size: 2.5rem; /* Larger icons */
-    color: #fff;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.4rem;
     text-decoration: none;
-    transition: 0.1s ease-in-out;
-}
-.social-links a:hover {
-    transform: scale(1.15);
-    transition: 0.1s ease-in-out;
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .social-links a:hover {
-    color: #ffc107; /* Yellow on hover */
+    transform: translateY(-4px);
+    background: var(--gradient);
+    color: #1a1200;
+    box-shadow: 0 14px 30px -12px rgba(251, 146, 60, 0.6);
 }
