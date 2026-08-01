@@ -1,6 +1,6 @@
 import React from 'react';
 
-const techStack = ['MongoDB', 'ExpressJS', 'ReactJS', 'NodeJS'];
+const techStack = ['MERN', 'Moodle', 'Woocommerce', 'Shopify', 'Linux'];
 
 const SlideInText = () => {
     return (
