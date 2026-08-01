@@ -9,7 +9,7 @@ const Contact = () => {
         <section id="contact" className="contact-section" ref={ref}>
             <div className={`section-container reveal ${visible ? 'is-visible' : ''}`}>
                 <div className="section-heading">
-                    <h2 className="section-title text-warning">Contact Me</h2>
+                    <h2 className="section-title text-warning">Get in Touch</h2>
                 </div>
                 <div className="social-links">
                     <a href="https://facebook.com/mezbaur2004" className="text-light" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
