@@ -13,8 +13,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
-            <div className="navbar-brand">{`<Rafi/>`}</div>
+        <nav className="custom-navbar">
+            <div className="custom-navbar-brand">{`<Rafi/>`}</div>
             <div className={`nav-links ${isOpen ? 'active' : ''}`}>
                 <a href="#about" onClick={closeDropdown}>About</a>
                 <a href="#skills" onClick={closeDropdown}>Skills</a>
