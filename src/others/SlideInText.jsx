@@ -1,12 +1,13 @@
 import React from 'react';
 
+const techStack = ['MongoDB', 'ExpressJS', 'ReactJS', 'NodeJS'];
+
 const SlideInText = () => {
     return (
         <div className="slide-in-container">
-            <div className="slide-in-text text-primary">MongoDB</div>
-            <div className="slide-in-text text-success">ExpressJS</div>
-            <div className="slide-in-text text-danger">ReactJS</div>
-            <div className="slide-in-text text-info">NodeJS</div>
+            {techStack.map((tech) => (
+                <span key={tech} className="slide-in-text">{tech}</span>
+            ))}
         </div>
     );
 };
