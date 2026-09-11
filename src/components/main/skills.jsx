@@ -6,7 +6,7 @@ const skillGroups = [
     {
         title: 'Full Stack Development',
         icon: 'fa-solid fa-code',
-        text: 'MERN Stack, REST APIs, Authentication, WebSockets, Third-party API Integration',
+        text: 'MERN Stack, REST APIs, Authentication, WebHooks, Third-party API Integration',
     },
     {
         title: 'LMS & eCommerce',
