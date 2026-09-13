@@ -1,99 +1,133 @@
-.professional-section {
-    padding: 90px 0;
-}
-
-.experience-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 36px;
-    transition: transform .3s var(--ease),
-                border-color .3s var(--ease);
-}
-
-.experience-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-}
-
-.experience-header {
+.timeline {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 26px;
+    padding-left: 38px;
+}
+
+/* Vertical rail behind the nodes */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 7px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--brand), rgba(59, 130, 246, 0.25) 55%, transparent);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-node {
+    position: absolute;
+    top: 32px;
+    left: -38px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--brand);
+    background: var(--bg);
+    box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.12);
+}
+
+.timeline-card {
+    padding: clamp(24px, 3vw, 34px);
+}
+
+.timeline-head {
+    display: flex;
     align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
-.experience-header h3 {
-    margin: 0;
-    font-size: 1.45rem;
+.timeline-role {
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #ffffff;
 }
 
-.experience-header span {
-    display: inline-block;
-    margin-top: 6px;
-    color: var(--accent);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.experience-date {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.95rem;
+.timeline-company {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 7px;
+    color: var(--brand-light);
+    font-size: 0.94rem;
     font-weight: 500;
+}
+
+.timeline-company i {
+    font-size: 0.82rem;
+    opacity: 0.75;
+}
+
+.timeline-period {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     white-space: nowrap;
 }
 
-.experience-description {
-    margin: 20px 0;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
+.timeline-summary {
+    margin-top: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-2);
+    font-size: 0.99rem;
     line-height: 1.8;
 }
 
-
-.experience-list-wrapper {
+.timeline-list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 12px;
+    margin-top: 18px;
 }
 
-
-.experience-list {
-    margin: 0;
-    padding-left: 22px;
+.timeline-list li {
+    display: flex;
+    gap: 12px;
+    color: var(--text-2);
+    font-size: 0.96rem;
+    line-height: 1.75;
 }
 
-.experience-list li {
-    color: rgba(255, 255, 255, 0.92);
-    line-height: 1.8;
-    margin-bottom: 12px;
-    font-size: 0.98rem;
+.timeline-list i {
+    flex: none;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: var(--brand);
 }
 
-.experience-list li::marker {
-    color: var(--accent);
-}
-.experience-list li:last-child {
-    margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-    .professional-section {
-        padding: 60px 0;
+@media (max-width: 640px) {
+    .timeline {
+        padding-left: 26px;
     }
 
-    .experience-card {
-        padding: 24px;
+    .timeline::before {
+        left: 5px;
     }
 
-    .experience-header {
-        flex-direction: column;
+    .timeline-node {
+        top: 26px;
+        left: -26px;
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
     }
 
-    .experience-date {
-        margin-top: -6px;
+    .timeline-period {
+        font-size: 0.7rem;
     }
 }

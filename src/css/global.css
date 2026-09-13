@@ -1,156 +1,376 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
+/* ==========================================================================
+   Design tokens
+   A single cool-blue system: deep navy grounds, one blue ramp for accent,
+   mono type for technical labels. Everything else derives from these.
+   ========================================================================== */
 :root {
-    --bg: #0a0e14;
-    --bg-soft: #0f141b;
-    --surface: rgba(255, 255, 255, 0.04);
-    --surface-hover: rgba(255, 255, 255, 0.07);
-    --border: rgba(255, 255, 255, 0.08);
-    --text: #eef1f6;
-    --text-dim: #8d95a3;
-    --accent: #fbbf24;
-    --accent-2: #38bdf8;
-    --gradient: linear-gradient(135deg, #fbbf24 0%, #fb923c 55%, #f97316 100%);
-    --radius-sm: 10px;
-    --radius-md: 18px;
-    --radius-lg: 28px;
-    --shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.55);
+    /* Surfaces */
+    --bg: #060a12;
+    --bg-soft: #080d17;
+    --surface: rgba(255, 255, 255, 0.026);
+    --surface-2: rgba(255, 255, 255, 0.05);
+    --surface-solid: #0b1220;
+    --glass: rgba(10, 16, 28, 0.72);
+
+    /* Lines */
+    --border: rgba(148, 170, 214, 0.12);
+    --border-strong: rgba(148, 170, 214, 0.24);
+
+    /* Type */
+    --text: #e7edf8;
+    --text-2: #a3b1c9;
+    --text-3: #6d7b95;
+
+    /* Brand ramp */
+    --brand: #3b82f6;
+    --brand-light: #7cb0fb;
+    --brand-deep: #1d4ed8;
+    --brand-soft: rgba(59, 130, 246, 0.12);
+    --brand-line: rgba(59, 130, 246, 0.3);
+    --gradient: linear-gradient(135deg, #7cb0fb 0%, #3b82f6 48%, #2563eb 100%);
+    --gradient-text: linear-gradient(120deg, #dfeaff 0%, #7cb0fb 55%, #3b82f6 100%);
+
+    /* Radii */
+    --r-sm: 10px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-xl: 28px;
+    --r-full: 999px;
+
+    /* Depth */
+    --shadow-sm: 0 2px 8px -2px rgba(2, 6, 16, 0.5);
+    --shadow-md: 0 18px 34px -18px rgba(2, 6, 16, 0.8);
+    --shadow-lg: 0 34px 70px -28px rgba(2, 6, 16, 0.95);
+    --glow: 0 16px 36px -16px rgba(37, 99, 235, 0.6);
+
+    /* Layout */
+    --container: 1160px;
+    --gutter: 24px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Fonts */
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    color-scheme: dark;
 }
 
-* {
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky header */
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
+    margin: 0;
     background: var(--bg);
     color: var(--text);
-    margin: 0;
-    padding: 0;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Ambient background blobs — pure CSS, no canvas/JS, cheap on resources */
-body::before,
+/* Ambient blue wash — static, no animation, cheap to paint */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(58rem 38rem at 8% -12%, rgba(37, 99, 235, 0.2), transparent 62%),
+        radial-gradient(46rem 32rem at 102% 4%, rgba(14, 165, 233, 0.11), transparent 58%),
+        radial-gradient(52rem 34rem at 50% 112%, rgba(29, 78, 216, 0.15), transparent 62%);
+}
+
+/* Faint engineering grid, faded out below the fold */
 body::after {
     content: '';
     position: fixed;
-    width: 45vw;
-    height: 45vw;
-    max-width: 620px;
-    max-height: 620px;
-    border-radius: 50%;
-    filter: blur(110px);
-    opacity: 0.16;
-    z-index: 0;
+    inset: 0;
+    z-index: -1;
     pointer-events: none;
-    animation: drift 18s ease-in-out infinite alternate;
-    will-change: transform;
+    background-image:
+        linear-gradient(rgba(148, 170, 214, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 170, 214, 0.045) 1px, transparent 1px);
+    background-size: 76px 76px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 35%, transparent 100%);
 }
 
-body::before {
-    background: #fb923c;
-    top: -10%;
-    left: -10%;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-body::after {
-    background: #38bdf8;
-    bottom: -15%;
-    right: -10%;
-    animation-delay: -9s;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-@keyframes drift {
-    from { transform: translate(0, 0) scale(1); }
-    to { transform: translate(4%, 6%) scale(1.08); }
+h1, h2, h3, h4 {
+    margin: 0;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
-#root {
-    position: relative;
-    z-index: 1;
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--brand-light);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 ::selection {
-    background: var(--accent);
-    color: #1a1200;
+    background: rgba(59, 130, 246, 0.35);
+    color: #fff;
 }
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--surface-hover);
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-}
-
-/* Shared layout wrapper used by every homepage section (replaces the old
-   per-file ".container" definitions that were silently overriding each other) */
-.section-container {
-    max-width: 1140px;
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--gutter);
+}
+
+.section {
     position: relative;
-    z-index: 1;
+    padding: clamp(72px, 8vw, 116px) 0;
+}
+
+/* Hairline divider between stacked sections */
+.section + .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100% - 48px, var(--container));
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ==========================================================================
+   Section headings
+   ========================================================================== */
+.section-head {
+    margin-bottom: clamp(36px, 4vw, 56px);
+    max-width: 720px;
+}
+
+.section-head.is-centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-light);
+    margin-bottom: 16px;
+}
+
+.eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--brand);
+}
+
+.section-head.is-centered .eyebrow::after {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--brand);
 }
 
 .section-title {
-    font-size: clamp(1.9rem, 4vw, 2.6rem);
-    font-weight: 700;
-    margin: 0 0 14px;
+    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.section-sub {
+    margin-top: 14px;
+    color: var(--text-2);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 11px 22px;
+    border: 1px solid transparent;
+    border-radius: var(--r-full);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
     letter-spacing: -0.01em;
-    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.25s var(--ease), background 0.25s var(--ease),
+                border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), color 0.25s var(--ease);
 }
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 48px;
+.btn i {
+    font-size: 0.88em;
 }
 
-.section-heading .section-title::after {
-    content: '';
-    display: block;
-    width: 64px;
-    height: 4px;
-    margin: 16px auto 0;
-    border-radius: 4px;
+.btn-primary {
     background: var(--gradient);
+    color: #05101f;
+    box-shadow: var(--glow);
 }
 
-.text-warning { color: var(--accent) !important; }
-.text-light { color: var(--text) !important; }
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 44px -18px rgba(37, 99, 235, 0.75);
+}
 
-/* Scroll-reveal utility — paired with the useReveal hook.
-   Cheap: only opacity + transform, both GPU-accelerated. */
+.btn-ghost {
+    background: var(--surface);
+    border-color: var(--border-strong);
+    color: var(--text);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand-line);
+    background: var(--brand-soft);
+    color: var(--brand-light);
+}
+
+.btn-sm {
+    min-height: 38px;
+    padding: 8px 16px;
+    font-size: 0.84rem;
+}
+
+/* ==========================================================================
+   Cards & chips
+   ========================================================================== */
+.card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease),
+                box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+}
+
+.card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 11px;
+    border: 1px solid var(--brand-line);
+    border-radius: var(--r-full);
+    background: var(--brand-soft);
+    color: #a9c8fb;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.chip-neutral {
+    border-color: var(--border);
+    background: var(--surface-2);
+    color: var(--text-2);
+}
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   Scroll reveal
+   ========================================================================== */
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transform: translateY(16px);
+    transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
 }
+
 .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
-.reveal-delay-1.is-visible { transition-delay: 0.08s; }
-.reveal-delay-2.is-visible { transition-delay: 0.16s; }
-.reveal-delay-3.is-visible { transition-delay: 0.24s; }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --gutter: 18px;
     }
 }
