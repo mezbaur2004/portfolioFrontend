@@ -38,6 +38,19 @@
     background: var(--brand-soft);
 }
 
+.contact-link:active {
+    transform: translateX(2px) scale(0.995);
+    transition-duration: 0.08s;
+}
+
+.contact-link-go {
+    transition: color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.contact-link:hover .contact-link-go {
+    transform: translate(2px, -2px);
+}
+
 .contact-link-icon {
     display: inline-flex;
     align-items: center;

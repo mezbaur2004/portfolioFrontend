@@ -109,7 +109,7 @@
     justify-content: center;
     width: 52px;
     height: 52px;
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid var(--brand-line);
     background: var(--brand-soft);
     color: var(--brand-ink);

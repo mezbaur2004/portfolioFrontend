@@ -9,7 +9,7 @@ import '../../css/projects.css';
 const Projects = () => {
     const [ref, visible] = useReveal();
 
-    const [lead, ...rest] = projects.slice(0, 4);
+    const featured = projects.slice(0, 4);
 
     return (
         <section id="projects" className="section projects-section" ref={ref}>
@@ -20,18 +20,12 @@ const Projects = () => {
                     sub="Applications and platforms I have built, integrated and deployed."
                 />
 
-                {lead && (
-                    <div className="projects-feature">
-                        <ProjectCard project={lead} featured visible={visible} />
-                    </div>
-                )}
-
                 <div className="projects-grid">
-                    {rest.map((project, index) => (
+                    {featured.map((project, index) => (
                         <ProjectCard
                             key={project.title}
                             project={project}
-                            delay={(index + 1) * 90}
+                            delay={(index % 2) * 80}
                             visible={visible}
                         />
                     ))}

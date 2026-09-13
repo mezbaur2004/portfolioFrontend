@@ -40,7 +40,7 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--brand-line);
     background: var(--brand-soft);
     color: var(--brand-ink);
@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 5px;
+    padding: 3px;
     border: 1px solid var(--border);
     border-radius: var(--r-full);
     background: var(--surface);
@@ -69,17 +69,25 @@
 
 .nav-link {
     position: relative;
-    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 16px;
     border-radius: var(--r-full);
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--text-2);
-    transition: color 0.25s var(--ease), background 0.25s var(--ease);
+    transition: color 0.2s var(--ease), background 0.2s var(--ease);
 }
 
 .nav-link:hover {
     color: var(--text);
     background: var(--surface-2);
+}
+
+.nav-link:active {
+    transform: scale(0.97);
+    transition-duration: 0.08s;
 }
 
 .nav-link.is-active {
@@ -91,6 +99,19 @@
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+/* Every control in the bar shares one height so the row reads level */
+.site-header .nav-desktop,
+.site-header .theme-toggle,
+.site-header .header-cv,
+.site-header .nav-toggle {
+    height: 44px;
+}
+
+.site-header .header-cv {
+    min-height: 0;
+    padding: 0 20px;
 }
 
 /* Mobile toggle ---------------------------------------------------------- */
@@ -115,6 +136,20 @@
     border-radius: 2px;
     background: var(--text);
     transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav-toggle {
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.nav-toggle:hover {
+    border-color: var(--brand-line);
+    background: var(--brand-soft);
+}
+
+.nav-toggle:active {
+    transform: scale(0.95);
+    transition-duration: 0.08s;
 }
 
 .site-header.is-open .nav-toggle span:first-child {
@@ -167,6 +202,20 @@
     color: var(--text);
     background: var(--surface-2);
     border-color: var(--border);
+}
+
+.nav-mobile-link:hover i {
+    transform: translateX(3px);
+    opacity: 0.9;
+}
+
+.nav-mobile-link i {
+    transition: transform 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+
+.nav-mobile-link:active {
+    transform: scale(0.99);
+    transition-duration: 0.08s;
 }
 
 .nav-mobile-link.is-active {
