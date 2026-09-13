@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import URL from "../others/variables.js"
-import axios from 'axios';
+import React from 'react';
+import projects from '../lib/projects.json';
 import '../css/projects.css';
 import '../css/allProjects.css';
 import Footer from "../components/main/footer.jsx";
@@ -8,18 +7,7 @@ import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import useReveal from "../others/useReveal.js";
 
 const AllProjects = () => {
-    const [projects, setProjects] = useState([]);
     const [gridRef, gridVisible] = useReveal();
-
-    useEffect(() => {
-        axios.get(`${URL}/projects`)
-            .then(response => {
-                setProjects(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching projects:', error);
-            });
-    }, []);
 
     return (
         <div className="all-projects-page">

@@ -1,26 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import URL from "../../others/variables.js"
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import projects from '../../lib/projects.json';
 import '../../css/projects.css';
 import useReveal from "../../others/useReveal.js";
 
 const Projects = () => {
-    const [projects, setProjects] = useState([]);
-    const [showAll, setShowAll] = useState(false);
     const [ref, visible] = useReveal();
 
-    useEffect(() => {
-        axios.get(`${URL}/projects`)
-            .then(response => {
-                setProjects(Array.isArray(response.data) ? response.data : []);
-            })
-            .catch(error => {
-                console.error('Error fetching projects:', error);
-            });
-    }, []);
-
-    const projectsToShow = Array.isArray(projects) ? projects.slice(0, 4) : [];
+    const projectsToShow = projects.slice(0, 4);
 
     return (
         <section id="projects" className="projects-section" ref={ref}>

@@ -1,0 +1,29 @@
+[
+  {
+    "role": "Assistant Programmer",
+    "company": "Pedago Academy, Dhaka",
+    "period": "January 2026 – Present",
+    "description": "Developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms while supporting deployment, infrastructure, and business-critical integrations.",
+    "highlights": [
+      "Troubleshoot, maintain, and extend the production Moodle LMS and Shopify/WooCommerce platforms, including bug fixes on the Linux production server, plugin evaluation, and configuration.",
+      "Develop Node.js applications and REST API integrations connecting payment gateways, business automation workflows, and third-party systems.",
+      "Developed and launched the Jolly Learning Bangladesh Shopify store, including store setup, theme customization, SEO, and deployment.",
+      "Support Linux VPS infrastructure — Nginx, PHP-FPM, SSL/TLS, and SSH — with backup and disaster recovery and performance optimization.",
+      "Author technical SOPs and operational documentation, including server architecture and deployment guides.",
+      "Coordinate technical requirements with external development teams to support platform enhancements and integrations."
+    ]
+  },
+  {
+    "role": "Intern Software Engineer",
+    "company": "Solution Spin Ltd, Dhaka",
+    "period": "August 2025 – January 2026",
+    "description": "Worked alongside senior developers to build and improve production-ready MERN applications while following modern software development practices and collaborative workflows.",
+    "highlights": [
+      "Developed frontend and backend features for production-ready MERN stack applications alongside senior engineers.",
+      "Implemented React routing, Redux Toolkit state management, and form validation.",
+      "Built and integrated REST APIs between frontend and backend services.",
+      "Participated in debugging, code reviews, and feature implementation.",
+      "Improved application maintainability through clean coding practices and structured project organization."
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 import React from "react";
+import experiences from "../../lib/experience.json";
 import "../../css/professional.css";
 import useReveal from "../../others/useReveal";
 
@@ -20,55 +21,33 @@ const Professional = () => {
 
                 <div className="experience-list-wrapper">
 
-                    <div className={`experience-card reveal ${visible ? "is-visible" : ""}`}>
-                        <div className="experience-header">
-                            <div>
-                                <h3>Assistant Programmer</h3>
-                                <span>Pedago Academy, Dhaka</span>
+                    {experiences.map((experience) => (
+                        <div
+                            key={`${experience.role} ${experience.company}`}
+                            className={`experience-card reveal ${visible ? "is-visible" : ""}`}
+                        >
+                            <div className="experience-header">
+                                <div>
+                                    <h3>{experience.role}</h3>
+                                    <span>{experience.company}</span>
+                                </div>
+
+                                <div className="experience-date">
+                                    {experience.period}
+                                </div>
                             </div>
 
-                            <div className="experience-date">
-                                January 2026 – Present
-                            </div>
+                            <p className="experience-description">
+                                {experience.description}
+                            </p>
+
+                            <ul className="experience-list">
+                                {experience.highlights.map((highlight, index) => (
+                                    <li key={index}>{highlight}</li>
+                                ))}
+                            </ul>
                         </div>
-
-                        <p className="experience-description">
-                            Developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms while supporting deployment, infrastructure, and business-critical integrations.
-                        </p>
-
-                        <ul className="experience-list">
-                            <li>Customized and maintained Moodle LMS with feature enhancements, reporting, plugin evaluation, and production support.</li>
-                            <li>Developed Node.js applications and RESTful APIs for business automation and integrations.</li>
-                            <li>Developed and launched a Shopify e-commerce website with SEO, generating customer inquiries and online payments before marketing.</li>
-                            <li>Supported Linux production servers through deployments, backups, monitoring, and critical production troubleshooting.</li>
-                            <li>Integrated payment gateways, authentication, and third-party APIs with custom backend solutions.</li>
-                        </ul>
-                    </div>
-
-                    <div className={`experience-card reveal ${visible ? "is-visible" : ""}`}>
-                        <div className="experience-header">
-                            <div>
-                                <h3>Intern Software Engineer</h3>
-                                <span>Solution Spin Ltd, Dhaka</span>
-                            </div>
-
-                            <div className="experience-date">
-                                August 2025 – January 2026
-                            </div>
-                        </div>
-
-                        <p className="experience-description">
-                            Worked alongside senior developers to build and improve production-ready MERN applications while following modern software development practices and collaborative workflows.
-                        </p>
-
-                        <ul className="experience-list">
-                            <li>Developed features using the MERN stack in collaboration with senior engineers.</li>
-                            <li>Implemented React routing, Redux state management, and client-side validation.</li>
-                            <li>Integrated REST APIs and improved frontend-backend communication.</li>
-                            <li>Participated in code reviews, debugging, and feature implementation.</li>
-                            <li>Contributed to improving application reliability, maintainability, and overall project structure.</li>
-                        </ul>
-                    </div>
+                    ))}
 
                 </div>
             </div>

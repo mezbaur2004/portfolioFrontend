@@ -1,24 +1,7 @@
 import React from 'react';
+import skillGroups from '../../lib/skills.json';
 import '../../css/skills.css'
 import useReveal from "../../others/useReveal.js";
-
-const skillGroups = [
-    {
-        title: 'Full Stack Development',
-        icon: 'fa-solid fa-code',
-        text: 'MERN Stack, REST APIs, Authentication, WebHooks, Third-party API Integration',
-    },
-    {
-        title: 'LMS & eCommerce',
-        icon: 'fa-solid fa-cart-shopping',
-        text: 'Moodle LMS, WooCommerce, Shopify, Custom Backend Integration, Order Synchronization, Payment Gateway Integration',
-    },
-    {
-        title: 'Deployment & Tools',
-        icon: 'fa-solid fa-server',
-        text: 'Linux, GitHub, VPS Management, Vercel, Render, Postman',
-    },
-];
 
 const Skills = () => {
     const [ref, visible] = useReveal();
