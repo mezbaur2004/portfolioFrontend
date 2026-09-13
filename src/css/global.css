@@ -359,6 +359,11 @@ p {
     box-shadow: var(--glow-hover);
 }
 
+.btn:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: 0.08s;
+}
+
 .btn-ghost {
     background: var(--surface);
     border-color: var(--border-strong);

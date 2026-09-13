@@ -1,24 +1,27 @@
-/* Featured project ------------------------------------------------------- */
-.projects-feature {
-    margin-bottom: 22px;
-}
-
+/* Grid --------------------------------------------------------------------
+   grid-auto-rows: 1fr makes every row the same height, so all four featured
+   cards are identical regardless of how long their text is. */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     gap: 22px;
 }
 
 .projects-more {
     display: flex;
     justify-content: center;
-    margin-top: 44px;
+    margin-top: 40px;
 }
 
-/* Card ------------------------------------------------------------------- */
+/* Card --------------------------------------------------------------------
+   Fixed regions top and bottom: title and description are a set number of
+   lines, tech tags and actions are anchored to the bottom edge, and the
+   flexible space sits between them. Every card lines up. */
 .project-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -48,119 +51,83 @@
     aspect-ratio: 16 / 10;
     object-fit: cover;
     object-position: top center;
-    transition: transform 0.6s var(--ease);
+    transition: transform 0.55s var(--ease);
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.045);
+    transform: scale(1.04);
 }
 
 .project-body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 24px;
+    padding: 22px;
 }
 
 .project-title {
-    font-size: 1.08rem;
+    font-size: 1.06rem;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.4;
+    /* Two lines whether the title needs them or not */
+    min-height: calc(2 * 1.4em);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-desc {
-    margin-top: 12px;
+    margin-top: 10px;
     color: var(--text-2);
     font-size: 0.93rem;
-    line-height: 1.75;
+    line-height: 1.7;
+    min-height: calc(4 * 1.7em);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
+/* auto pushes tags + actions to the bottom edge of every card */
 .project-tech {
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 18px;
 }
 
 .project-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    /* auto keeps the buttons on the card's bottom edge so rows line up */
-    margin-top: auto;
-    padding-top: 20px;
+    margin-top: 18px;
+    padding-top: 18px;
     border-top: 1px solid var(--border);
 }
 
-/* Featured variant ------------------------------------------------------- */
-.project-card.is-featured {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    align-items: stretch;
+/* No tags on a card? The actions still need to sit at the bottom. */
+.project-body > .project-actions:not(.project-tech + .project-actions) {
+    margin-top: auto;
 }
 
-.project-card.is-featured .project-media {
-    border-bottom: none;
-    border-right: 1px solid var(--border);
-    height: 100%;
-}
-
-.project-card.is-featured .project-img {
-    height: 100%;
-    aspect-ratio: auto;
-    min-height: 320px;
-}
-
-.project-card.is-featured .project-body {
-    justify-content: center;
-    padding: var(--card-pad-lg);
-}
-
-.project-card.is-featured .project-title {
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
-}
-
-.project-card.is-featured .project-desc {
-    font-size: 1rem;
-}
-
-.project-card.is-featured .project-actions {
-    margin-top: 28px;
-}
-
-/* Responsive ------------------------------------------------------------- */
-@media (max-width: 1040px) {
+/* Responsive --------------------------------------------------------------
+   Below the two-column layout each card is full width and alone on its row,
+   so the fixed text regions stop earning their keep — show the full copy. */
+@media (max-width: 900px) {
     .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .projects-grid > :last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 860px) {
-    .project-card.is-featured {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .project-card.is-featured .project-media {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .project-card.is-featured .project-img {
+    /* One card per row: show the full copy, but keep heights matched via
+       grid-auto-rows so the stack still reads as one set. */
+    .project-title,
+    .project-desc {
+        display: block;
         min-height: 0;
-        aspect-ratio: 16 / 10;
+        overflow: visible;
     }
 }
 
 @media (max-width: 680px) {
-    .projects-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .projects-grid > :last-child:nth-child(odd) {
-        grid-column: auto;
-    }
-
     .project-body {
         padding: 20px;
     }

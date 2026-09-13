@@ -1,12 +1,12 @@
 import React from 'react';
 import { deriveTech } from '../../others/tech.js';
 
-const ProjectCard = ({ project, featured = false, delay = 0, visible = true }) => {
+const ProjectCard = ({ project, delay = 0, visible = true }) => {
     const tech = deriveTech(project);
 
     return (
         <article
-            className={`card project-card ${featured ? 'is-featured' : ''} reveal ${visible ? 'is-visible' : ''}`}
+            className={`card project-card reveal ${visible ? 'is-visible' : ''}`}
             style={{ '--reveal-delay': `${delay}ms` }}
         >
             <div className="project-media">

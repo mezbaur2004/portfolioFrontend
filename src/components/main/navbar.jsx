@@ -58,7 +58,7 @@ const Navbar = () => {
                     <ThemeToggle />
 
                     <a
-                        className="btn btn-primary btn-sm header-cv"
+                        className="btn btn-primary header-cv"
                         href={profile.cvLink}
                         target="_blank"
                         rel="noopener noreferrer"

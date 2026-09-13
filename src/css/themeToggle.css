@@ -3,6 +3,7 @@
     align-items: center;
     gap: 2px;
     padding: 4px;
+    /* matches the nav pill group and the resume button at 44px */
     border: 1px solid var(--border);
     border-radius: var(--r-full);
     background: var(--surface);
@@ -24,7 +25,8 @@
     font-weight: 500;
     line-height: 1;
     cursor: pointer;
-    transition: color 0.2s var(--ease), background 0.2s var(--ease);
+    transition: color 0.2s var(--ease), background 0.2s var(--ease),
+                box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
 .theme-option i {
@@ -40,6 +42,11 @@
     color: var(--brand-ink);
     background: var(--brand-soft);
     box-shadow: inset 0 0 0 1px var(--brand-line);
+}
+
+.theme-option:active {
+    transform: scale(0.95);
+    transition-duration: 0.08s;
 }
 
 .theme-option:focus-visible {
