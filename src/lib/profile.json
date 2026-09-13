@@ -3,9 +3,32 @@
   "role": "Software Engineer",
   "photo": "https://i.postimg.cc/bJHvz2Qf/491356548-679795234547457-6482980502957883213-n.jpg",
   "cvLink": "https://drive.google.com/file/d/15xqoA_IhYagNkMReLqoMC-1SY_yAG60O/view",
-  "techStack": ["MERN", "Moodle", "WooCommerce", "Shopify", "Linux"],
+  "techStack": [
+    "MERN",
+    "Moodle",
+    "WooCommerce",
+    "Shopify",
+    "Linux"
+  ],
   "summary": [
     "Software engineer with experience developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms. Proficient in JavaScript and TypeScript across the MERN stack and Next.js, and experienced in customizing Moodle LMS, extending WordPress and WooCommerce, integrating Shopify with custom backends, and building secure REST APIs. Comfortable working with authentication and authorization, payment gateway integrations, third-party systems, and both document and relational databases.",
     "Beyond application development, experienced in Linux server administration, VPS management, deployment, performance optimization, backup and disaster recovery, and troubleshooting production environments. Enjoy solving complex technical challenges, improving system reliability, and delivering maintainable, well-documented solutions that provide long term value for both users and businesses."
+  ],
+  "socials": [
+    {
+      "label": "Facebook",
+      "url": "https://facebook.com/mezbaur2004",
+      "icon": "fa-brands fa-facebook"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/mezbaur2004",
+      "icon": "fab fa-linkedin"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/mezbaur2004",
+      "icon": "fab fa-github"
+    }
   ]
 }
