@@ -16,19 +16,8 @@
 
 .about-body {
     position: relative;
-    padding: clamp(26px, 3.4vw, 42px);
+    padding: var(--card-pad);
     overflow: hidden;
-}
-
-/* Blue edge light along the top of the card */
-.about-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--brand-line), transparent);
 }
 
 .about-para {
@@ -44,7 +33,7 @@
 }
 
 .about-para.is-lead {
-    color: #cfdaee;
+    color: var(--text-strong);
     font-size: 1.06rem;
 }
 

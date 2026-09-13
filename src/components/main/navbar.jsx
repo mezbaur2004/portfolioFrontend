@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import profile from '../../lib/profile.json';
+import ThemeToggle from './themeToggle.jsx';
 import useActiveSection from '../../others/useActiveSection.js';
 import '../../css/navbar.css';
 
@@ -54,6 +55,8 @@ const Navbar = () => {
                 </nav>
 
                 <div className="header-actions">
+                    <ThemeToggle />
+
                     <a
                         className="btn btn-primary btn-sm header-cv"
                         href={profile.cvLink}

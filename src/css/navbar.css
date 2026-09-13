@@ -43,7 +43,7 @@
     border-radius: 10px;
     border: 1px solid var(--brand-line);
     background: var(--brand-soft);
-    color: var(--brand-light);
+    color: var(--brand-ink);
     font-family: var(--font-mono);
     font-size: 0.82rem;
     transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
@@ -51,7 +51,7 @@
 
 .brand:hover .brand-mark {
     border-color: var(--brand);
-    background: rgba(59, 130, 246, 0.2);
+    background: var(--brand-soft);
 }
 
 /* Desktop nav ------------------------------------------------------------ */
@@ -83,7 +83,7 @@
 }
 
 .nav-link.is-active {
-    color: var(--brand-light);
+    color: var(--brand-ink);
     background: var(--brand-soft);
 }
 
@@ -170,7 +170,7 @@
 }
 
 .nav-mobile-link.is-active {
-    color: var(--brand-light);
+    color: var(--brand-ink);
 }
 
 .nav-mobile-cv {

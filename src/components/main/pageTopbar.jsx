@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './themeToggle.jsx';
 import '../../css/navbar.css';
 
 // Header for the standalone routes (/all-projects, /contact). Same shell as the
@@ -12,9 +13,13 @@ const PageTopbar = ({ label = 'Back to portfolio' }) => (
                 <span className="brand-name">Rafi</span>
             </Link>
 
-            <Link to="/" className="btn btn-ghost btn-sm">
-                <i className="fa-solid fa-arrow-left"></i> {label}
-            </Link>
+            <div className="header-actions">
+                <ThemeToggle />
+
+                <Link to="/" className="btn btn-ghost btn-sm">
+                    <i className="fa-solid fa-arrow-left"></i> {label}
+                </Link>
+            </div>
         </div>
     </header>
 );

@@ -22,7 +22,7 @@
     border: 1px solid var(--brand-line);
     border-radius: var(--r-full);
     background: var(--brand-soft);
-    color: var(--brand-light);
+    color: var(--brand-ink);
     font-family: var(--font-mono);
     font-size: 0.76rem;
     font-weight: 500;
@@ -35,7 +35,7 @@
     height: 7px;
     border-radius: 50%;
     background: var(--brand);
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18);
+    box-shadow: 0 0 0 4px var(--node-ring);
 }
 
 .hero-title {
@@ -98,7 +98,7 @@
 
 .social-btn:hover {
     transform: translateY(-3px);
-    color: var(--brand-light);
+    color: var(--brand-ink);
     border-color: var(--brand-line);
     background: var(--brand-soft);
 }
@@ -121,7 +121,7 @@
     position: absolute;
     inset: -14%;
     border-radius: 50%;
-    background: radial-gradient(circle at 50% 45%, rgba(59, 130, 246, 0.3), transparent 62%);
+    background: radial-gradient(circle at 50% 45%, var(--bloom), transparent 62%);
     filter: blur(28px);
 }
 
@@ -130,7 +130,7 @@
     height: 100%;
     padding: 10px;
     border-radius: var(--r-xl);
-    background: linear-gradient(150deg, rgba(124, 176, 251, 0.55), rgba(59, 130, 246, 0.12) 45%, rgba(148, 170, 214, 0.1));
+    background: var(--portrait-frame);
     box-shadow: var(--shadow-lg);
 }
 

@@ -23,7 +23,9 @@
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
 }
 
 .project-media {
@@ -37,7 +39,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(6, 10, 18, 0) 45%, rgba(6, 10, 18, 0.5));
+    background: var(--media-fade);
     pointer-events: none;
 }
 
@@ -108,7 +110,7 @@
 
 .project-card.is-featured .project-body {
     justify-content: center;
-    padding: clamp(26px, 3.2vw, 44px);
+    padding: var(--card-pad-lg);
 }
 
 .project-card.is-featured .project-title {

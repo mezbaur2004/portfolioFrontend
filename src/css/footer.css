@@ -1,6 +1,6 @@
 .site-footer {
     border-top: 1px solid var(--border);
-    background: linear-gradient(180deg, transparent, rgba(8, 13, 23, 0.7));
+    background: linear-gradient(180deg, transparent, var(--footer-fade));
 }
 
 .footer-inner {

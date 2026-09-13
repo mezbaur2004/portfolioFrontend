@@ -3,9 +3,9 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: clamp(28px, 4vw, 56px);
     align-items: center;
-    padding: clamp(28px, 4vw, 52px);
+    padding: var(--card-pad-lg);
     background:
-        radial-gradient(40rem 22rem at 0% 0%, rgba(59, 130, 246, 0.12), transparent 60%),
+        radial-gradient(40rem 22rem at 0% 0%, var(--contact-wash), transparent 60%),
         var(--surface);
 }
 
@@ -48,7 +48,7 @@
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--surface);
-    color: var(--brand-light);
+    color: var(--brand-ink);
     font-size: 1.02rem;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .contact-link:hover .contact-link-go {
-    color: var(--brand-light);
+    color: var(--brand-ink);
 }
 
 @media (max-width: 900px) {
