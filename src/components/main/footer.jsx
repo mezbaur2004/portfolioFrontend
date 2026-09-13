@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import '../../css/footer.css';
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
             <div className="section-container">
                 <p className="footer-text">
                     &copy; {new Date().getFullYear()} All rights reserved by Rafi
-                    <Link to='/admin'><span className="admin-link">.</span></Link>
+                    <span className="admin-link">.</span>
                 </p>
             </div>
         </footer>
