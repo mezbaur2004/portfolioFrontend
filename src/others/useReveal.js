@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Lightweight scroll-reveal hook. Observes the returned ref and flips
-// `visible` to true the first time the element enters the viewport, then
-// stops observing (no ongoing scroll listeners, so it stays cheap).
-const useReveal = (options = { threshold: 0.15 }) => {
+// Scroll-reveal hook. Flips `visible` the first time the element reaches the
+// reveal line, then detaches.
+//
+// Deliberately position-based rather than IntersectionObserver: an observer
+// only reports when the intersection *changes* between frames, so jumping the
+// viewport past a section — an anchor link, Cmd+End, a fast flick — can skip
+// the notification entirely and leave that section stuck at opacity 0. Reading
+// the rect on a rAF-throttled scroll handles arriving from either direction.
+const useReveal = ({ ratio = 0.92 } = {}) => {
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
 
@@ -11,17 +16,36 @@ const useReveal = (options = { threshold: 0.15 }) => {
         const node = ref.current;
         if (!node) return undefined;
 
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                setVisible(true);
-                observer.unobserve(node);
-            }
-        }, options);
+        let frame = 0;
+        let done = false;
 
-        observer.observe(node);
-        return () => observer.disconnect();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        const detach = () => {
+            if (frame) window.cancelAnimationFrame(frame);
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+        };
+
+        const measure = () => {
+            frame = 0;
+            if (done) return;
+            // Covers both directions: entering from below, or already passed.
+            if (node.getBoundingClientRect().top <= window.innerHeight * ratio) {
+                done = true;
+                setVisible(true);
+                detach();
+            }
+        };
+
+        function onScroll() {
+            if (!frame) frame = window.requestAnimationFrame(measure);
+        }
+
+        measure();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+
+        return detach;
+    }, [ratio]);
 
     return [ref, visible];
 };

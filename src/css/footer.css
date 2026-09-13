@@ -1,19 +1,57 @@
-.footer {
-    padding: 30px 0;
-    text-align: center;
+.site-footer {
     border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, transparent, var(--footer-fade));
 }
 
-.footer-text {
-    margin: 0;
-    color: var(--text-dim);
-    font-size: 0.9rem;
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding-top: 34px;
+    padding-bottom: 34px;
 }
 
-/* Kept functional (same /admin route) but no longer visible as a stray "."
-   in the middle of the copyright line. */
-.admin-link {
-    color: transparent;
-    text-decoration: none;
-    padding: 0 4px;
+.footer-identity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-name {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.footer-role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-3);
+    line-height: 1.6;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-socials .social-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.92rem;
+}
+
+.footer-copy {
+    color: var(--text-3);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
 }

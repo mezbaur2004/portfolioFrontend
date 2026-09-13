@@ -1,64 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import projects from '../../lib/projects.json';
+import ProjectCard from './projectCard.jsx';
+import SectionHeading from './sectionHeading.jsx';
+import useReveal from '../../others/useReveal.js';
 import '../../css/projects.css';
-import useReveal from "../../others/useReveal.js";
 
 const Projects = () => {
     const [ref, visible] = useReveal();
 
-    const projectsToShow = projects.slice(0, 4);
+    const [lead, ...rest] = projects.slice(0, 4);
 
     return (
-        <section id="projects" className="projects-section" ref={ref}>
-            <div className="section-container">
-                <div className="section-heading">
-                    <h2 className="section-title text-warning">Featured Projects</h2>
-                </div>
-                <div className="projects-list">
-                    {projectsToShow.map((project, index) => (
-                        <div
-                            key={index}
-                            className={`project-item reveal reveal-delay-${index + 1} ${visible ? 'is-visible' : ''}`}
-                        >
-                            <div className="project-image-wrap">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="project-image"
-                                />
-                            </div>
-                            <div className="project-body">
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                                <div className="project-actions">
-                                    {project.gitHubLink && (
-                                        <a
-                                            href={project.gitHubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn-outline"
-                                        >
-                                            <i className="fa-brands fa-github"></i> Repository
-                                        </a>
-                                    )}
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-solid"
-                                    >
-                                        View Project <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        <section id="projects" className="section projects-section" ref={ref}>
+            <div className="container">
+                <SectionHeading
+                    eyebrow="Work"
+                    title="Featured Projects"
+                    sub="Applications and platforms I have built, integrated and deployed."
+                />
+
+                {lead && (
+                    <div className="projects-feature">
+                        <ProjectCard project={lead} featured visible={visible} />
+                    </div>
+                )}
+
+                <div className="projects-grid">
+                    {rest.map((project, index) => (
+                        <ProjectCard
+                            key={project.title}
+                            project={project}
+                            delay={(index + 1) * 90}
+                            visible={visible}
+                        />
                     ))}
                 </div>
+
                 {projects.length > 4 && (
-                    <div className="show-all-wrap">
-                        <Link to="/all-projects" className="btn-outline">
-                            Show All Projects
+                    <div className="projects-more">
+                        <Link to="/all-projects" className="btn btn-ghost">
+                            View all {projects.length} projects <i className="fa-solid fa-arrow-right"></i>
                         </Link>
                     </div>
                 )}

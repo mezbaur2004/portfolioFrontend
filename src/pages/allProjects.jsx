@@ -1,76 +1,49 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import projects from '../lib/projects.json';
+import PageTopbar from '../components/main/pageTopbar.jsx';
+import ProjectCard from '../components/main/projectCard.jsx';
+import SectionHeading from '../components/main/sectionHeading.jsx';
+import Footer from '../components/main/footer.jsx';
+import useReveal from '../others/useReveal.js';
 import '../css/projects.css';
 import '../css/allProjects.css';
-import Footer from "../components/main/footer.jsx";
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
-import useReveal from "../others/useReveal.js";
 
 const AllProjects = () => {
-    const [gridRef, gridVisible] = useReveal();
+    const [ref, visible] = useReveal();
 
     return (
-        <div className="all-projects-page">
-            <header className="full-topbar">
-                <div className="section-container full-topbar-inner">
-                    <span className="full-topbar-brand">{`<Rafi/>`}</span>
-                    <Link to="/" className="btn-outline">
-                        Go to Homepage
-                    </Link>
-                </div>
-            </header>
+        <div className="page-shell">
+            <PageTopbar />
 
-            <section id="full-display-projects" className="projects-full-section" ref={gridRef}>
-                <div className="section-container">
-                    <div className="section-heading">
-                        <h2 className="section-title text-warning">All Projects</h2>
-                    </div>
+            <main className="page-main" ref={ref}>
+                <div className="container">
+                    <SectionHeading
+                        eyebrow={`${projects.length} projects`}
+                        title="All Projects"
+                        sub="Everything featured on the homepage, plus the rest of the work."
+                    />
 
-                    {/* CSS Grid for the projects layout */}
-                    <div className="full-projects-grid">
+                    <div className="allprojects-grid">
                         {projects.map((project, index) => (
-                            <div
-                                key={index}
-                                className={`project-item reveal reveal-delay-${(index % 3) + 1} ${gridVisible ? 'is-visible' : ''}`}
-                            >
-                                <div className="project-image-wrap">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="project-image"
-                                    />
-                                </div>
-                                <div className="project-body">
-                                    <h3>{project.title}</h3>
-                                    <p>{project.description}</p>
-                                    <div className="project-actions">
-                                        {project.gitHubLink && (
-                                            <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer"
-                                               className="btn-outline">
-                                                <i className="fa-brands fa-github"></i> Repository
-                                            </a>
-                                        )}
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer"
-                                           className="btn-solid">
-                                            View Project <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <ProjectCard
+                                key={project.title}
+                                project={project}
+                                delay={(index % 2) * 90}
+                                visible={visible}
+                            />
                         ))}
                     </div>
+
+                    <div className="allprojects-foot">
+                        <Link to="/" className="btn btn-ghost">
+                            <i className="fa-solid fa-arrow-left"></i> Back to portfolio
+                        </Link>
+                    </div>
                 </div>
+            </main>
 
-                {/* "Go to Homepage" Button */}
-                <div className="show-all-wrap">
-                    <Link to="/" className="btn-outline">
-                        Go to Homepage
-                    </Link>
-                </div>
-
-            </section>
-
-            <Footer/>
+            <Footer />
         </div>
     );
 };
