@@ -1,32 +1,21 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import SlideInText from "../../others/SlideInText.jsx";
 import { Link } from 'react-router-dom';
 import Dp from "../../others/dp.jsx";
-import URL from "../../others/variables.js"
+import profile from "../../lib/profile.json";
 import useReveal from "../../others/useReveal.js";
 import '../../css/about.css'
 
 const About = () => {
-    const [aboutDescription, setAboutDescription] = useState('');
     const [detailsRef, detailsVisible] = useReveal();
-
-    useEffect(() => {
-        axios.get(`${URL}/about`)
-            .then((response) => {
-                setAboutDescription(response.data.about);
-            })
-            .catch((error) => console.error('Error fetching data:', error));
-    }, [URL]); // Added URL to dependencies
 
     return (
         <section id="about" className="about-section">
             <div className="hero">
                 <div className="section-container hero-grid">
                     <div className="hero-content">
-                        <h3 className="description-title">Software Engineer</h3>
+                        <h3 className="description-title">{profile.role}</h3>
                         <h1 className="hero-title">
-                            Hi, I&apos;m <span className="name">Mezbaur Are Rafi</span>
+                            Hi, I&apos;m <span className="name">{profile.name}</span>
                         </h1>
                         <SlideInText/>
                         <div className="button-group">
@@ -36,7 +25,7 @@ const About = () => {
 
                             <a
                                 className="bt-download"
-                                href="https://drive.google.com/file/d/15xqoA_IhYagNkMReLqoMC-1SY_yAG60O/view"
+                                href={profile.cvLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -57,10 +46,11 @@ const About = () => {
                 <div className="section-container">
                     <div className="about-card">
                         <h2 className="section-title text-warning">Professional Summary</h2>
-                        <div
-                            className="section-description text-light"
-                            dangerouslySetInnerHTML={{__html: aboutDescription}}
-                        />
+                        <div className="section-description text-light">
+                            {profile.summary.map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

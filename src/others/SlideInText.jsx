@@ -1,11 +1,10 @@
 import React from 'react';
-
-const techStack = ['MERN', 'Moodle', 'Woocommerce', 'Shopify', 'Linux'];
+import profile from "../lib/profile.json";
 
 const SlideInText = () => {
     return (
         <div className="slide-in-container">
-            {techStack.map((tech) => (
+            {profile.techStack.map((tech) => (
                 <span key={tech} className="slide-in-text">{tech}</span>
             ))}
         </div>

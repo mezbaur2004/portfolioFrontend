@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Calisthenics-Guides (NextJS+TS+Tailwind)",
+    "description": "Calisthenics workout and routine guide built with Next.js 16, TypeScript, and Tailwind CSS. Exercise pages, routines, and progressions are driven by type-safe data models and server-side rendering.",
+    "link": "https://calisthenics-guide-flame.vercel.app",
+    "gitHubLink": "https://github.com/mezbaur2004/calisthenics-guide",
+    "image": "https://i.postimg.cc/26KWkYMd/Screenshot-2025-11-16-144715.png"
+  },
+  {
+    "title": "Fulkopi - Full-stack E-commerce Platform (with admin dashboard)",
+    "description": "MERN-stack eCommerce platform with Google OAuth and JWT authentication, role-based access control, and an admin dashboard. Integrates SSLCommerz payments on a Docker-ready Express backend.",
+    "link": "https://fulkopi-frontend.vercel.app/",
+    "gitHubLink": "https://github.com/mezbaur2004/fulkopiBackend",
+    "image": "https://i.postimg.cc/qR2BCHP5/Screenshot-2025-10-23-212215.png"
+  },
+  {
+    "title": "Inventory Management System",
+    "description": "Full-stack MERN inventory application for product, brand, and category management, with Redux Toolkit state and data consistency rules that block deleting a brand still linked to products.",
+    "link": "https://inventory-frontend-mezbaur.vercel.app/",
+    "gitHubLink": "https://github.com/mezbaur2004/inventoryBackend",
+    "image": "https://i.postimg.cc/3JzYcVLp/Screenshot-2025-04-23-010518.png"
+  },
+  {
+    "title": "Task Manager Website",
+    "description": "Task management web application on the MERN stack — React and Redux on the frontend, Express.js and MongoDB on the backend — with user login and task CRUD operations.",
+    "link": "https://mezbaur-tskmngr.vercel.app/Login",
+    "gitHubLink": "https://github.com/mezbaur2004/taskManagerBackend",
+    "image": "https://i.postimg.cc/vB5Qrz79/Screenshot-2025-04-23-004517.png"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "This site — a React and Vite single-page app with client-side routing and static JSON content, plus a Node.js/Express and MongoDB API for authenticated admin updates.",
+    "link": "https://mezbaur.vercel.app/",
+    "gitHubLink": "https://github.com/mezbaur2004/portfolioBackend",
+    "image": "https://i.postimg.cc/QC2qBy59/Screenshot-2025-04-21-220657.png"
+  }
+]

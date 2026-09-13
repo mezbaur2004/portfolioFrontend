@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Full Stack Development",
+    "icon": "fa-solid fa-code",
+    "text": "MERN Stack, TypeScript, Next.js, REST APIs, Authentication (JWT & OAuth), Webhooks, MongoDB & SQL Databases"
+  },
+  {
+    "title": "LMS & eCommerce",
+    "icon": "fa-solid fa-cart-shopping",
+    "text": "Moodle LMS, WordPress & WooCommerce, Shopify & Liquid, Custom Backend Integration, Payment Gateway Integration, Third-party API Integration"
+  },
+  {
+    "title": "Deployment & Tools",
+    "icon": "fa-solid fa-server",
+    "text": "Linux, VPS Management, Nginx, Git & GitHub, Vercel, Render, Postman"
+  }
+]
