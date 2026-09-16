@@ -124,6 +124,16 @@
     margin-top: auto;
 }
 
+/* Cards narrow as the viewport does while the copy stays the same length,
+   so the description gets one more line before the single-column layout
+   drops the clamp entirely. */
+@media (max-width: 1200px) and (min-width: 901px) {
+    .project-desc {
+        min-height: calc(5 * 1.7em);
+        -webkit-line-clamp: 5;
+    }
+}
+
 /* Responsive --------------------------------------------------------------
    Below the two-column layout each card is full width and alone on its row,
    so the fixed text regions stop earning their keep — show the full copy. */
