@@ -1,15 +1,15 @@
 [
   {
     "title": "Shopify SSLCommerz Payment Middleware",
-    "description": "Node.js and TypeScript middleware linking Shopify to the SSLCommerz gateway through the Shopify Admin API. An Express and MongoDB service covering checkout, payment initiation, IPN verification and Draft-to-Paid order conversion.",
+    "description": "Node.js and TypeScript middleware on Express and MongoDB, linking Shopify to SSLCommerz via the Shopify Admin API. Processes verified payments as Manual orders, removing Shopify's 2% third-party transaction fee.",
     "link": "",
     "gitHubLink": "https://github.com/mezbaur2004/shopify-sslcommerz-middleware",
     "image": ""
   },
   {
     "title": "Jolly Learning Bangladesh",
-    "description": "Production Shopify storefront developed and launched end to end — store setup, theme and Liquid customization, product configuration, SEO and deployment — integrated with the custom SSLCommerz middleware for local payments.",
-    "link": "",
+    "description": "Production Shopify storefront for Jolly Learning UK's local partner in Bangladesh — theme and Liquid customization, product setup, SEO and deployment, with the custom SSLCommerz middleware handling payments.",
+    "link": "https://jollylearningbd.com",
     "gitHubLink": "",
     "image": ""
   },
