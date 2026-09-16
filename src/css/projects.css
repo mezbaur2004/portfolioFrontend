@@ -58,6 +58,21 @@
     transform: scale(1.04);
 }
 
+/* Stand-in for work with no screenshot — keeps the media box, and so the
+   card height, identical to every other card. */
+.project-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon-grad);
+    color: var(--brand-ink);
+    font-size: 1.9rem;
+}
+
+.project-card:hover .project-img-placeholder {
+    transform: none;
+}
+
 .project-body {
     display: flex;
     flex-direction: column;
