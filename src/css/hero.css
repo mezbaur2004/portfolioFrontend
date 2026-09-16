@@ -130,23 +130,49 @@
     filter: blur(28px);
 }
 
-/* Gradient ring around a true circle */
+/* Hairline ring around a true circle. The ring is the 2px of padding left
+   showing around the image; a conic gradient rotates behind it so a soft
+   highlight travels around the edge. */
 .portrait-frame {
     position: relative;
     height: 100%;
-    padding: 7px;
+    padding: 2px;
     border-radius: 50%;
-    background: var(--portrait-frame);
-    box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+    overflow: hidden;
+    background: var(--border);
+    box-shadow: var(--shadow-lg);
+}
+
+.portrait-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        var(--brand) 55deg,
+        var(--brand-ink) 95deg,
+        transparent 165deg,
+        transparent 360deg
+    );
+    animation: portrait-ring 14s linear infinite;
+    will-change: transform;
 }
 
 .portrait-img {
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
     background: var(--surface-solid);
+}
+
+@keyframes portrait-ring {
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 /* Responsive ------------------------------------------------------------- */
