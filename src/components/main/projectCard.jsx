@@ -3,6 +3,7 @@ import { deriveTech } from '../../others/tech.js';
 
 const ProjectCard = ({ project, delay = 0, visible = true }) => {
     const tech = deriveTech(project);
+    const hasLinks = Boolean(project.link || project.gitHubLink);
 
     return (
         <article
@@ -10,12 +11,18 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
             style={{ '--reveal-delay': `${delay}ms` }}
         >
             <div className="project-media">
-                <img
-                    src={project.image}
-                    alt={`${project.title} screenshot`}
-                    className="project-img"
-                    loading="lazy"
-                />
+                {project.image ? (
+                    <img
+                        src={project.image}
+                        alt={`${project.title} screenshot`}
+                        className="project-img"
+                        loading="lazy"
+                    />
+                ) : (
+                    <div className="project-img project-img-placeholder" role="img" aria-label={`${project.title} — no screenshot`}>
+                        <i className="fa-solid fa-code" aria-hidden="true"></i>
+                    </div>
+                )}
             </div>
 
             <div className="project-body">
@@ -30,6 +37,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                     </ul>
                 )}
 
+                {hasLinks && (
                 <div className="project-actions">
                     {project.link && (
                         <a
@@ -52,6 +60,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                         </a>
                     )}
                 </div>
+                )}
             </div>
         </article>
     );

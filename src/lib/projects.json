@@ -1,5 +1,19 @@
 [
   {
+    "title": "Shopify SSLCommerz Payment Middleware",
+    "description": "Node.js and TypeScript middleware linking Shopify to the SSLCommerz gateway through the Shopify Admin API. An Express and MongoDB service covering checkout, payment initiation, IPN verification and Draft-to-Paid order conversion.",
+    "link": "",
+    "gitHubLink": "https://github.com/mezbaur2004/shopify-sslcommerz-middleware",
+    "image": ""
+  },
+  {
+    "title": "Jolly Learning Bangladesh",
+    "description": "Production Shopify storefront developed and launched end to end — store setup, theme and Liquid customization, product configuration, SEO and deployment — integrated with the custom SSLCommerz middleware for local payments.",
+    "link": "",
+    "gitHubLink": "",
+    "image": ""
+  },
+  {
     "title": "Calisthenics-Guides (NextJS+TS+Tailwind)",
     "description": "Calisthenics workout and routine guide built with Next.js 16, TypeScript, and Tailwind CSS. Exercise pages, routines, and progressions are driven by type-safe data models and server-side rendering.",
     "link": "https://calisthenics-guide-flame.vercel.app",
