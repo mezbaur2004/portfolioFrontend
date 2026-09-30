@@ -1,23 +1,23 @@
 /* Grid --------------------------------------------------------------------
-   grid-auto-rows: 1fr makes every row the same height, so all four featured
-   cards are identical regardless of how long their text is. */
+   grid-auto-rows: 1fr makes every row the same height, so every card is
+   identical regardless of how long its text is. */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 1fr;
-    gap: 22px;
+    gap: 16px;
 }
 
 .projects-more {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 36px;
 }
 
 /* Card --------------------------------------------------------------------
-   Fixed regions top and bottom: title and description are a set number of
-   lines, tech tags and actions are anchored to the bottom edge, and the
-   flexible space sits between them. Every card lines up. */
+   Fixed regions top and bottom: the title and description take a set number
+   of lines, tags and actions sit on the bottom edge, and the flexible space
+   goes between them — so every card lines up. */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -26,24 +26,13 @@
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
     border-color: var(--border-strong);
-    box-shadow: var(--shadow-md);
 }
 
 .project-media {
-    position: relative;
     overflow: hidden;
-    background: var(--surface-solid);
+    background: var(--surface-2);
     border-bottom: 1px solid var(--border);
-}
-
-.project-media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--media-fade);
-    pointer-events: none;
 }
 
 .project-img {
@@ -51,22 +40,33 @@
     aspect-ratio: 16 / 10;
     object-fit: cover;
     object-position: top center;
-    transition: transform 0.55s var(--ease);
+    transition: transform 0.4s var(--ease);
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
-/* Stand-in for work with no screenshot — keeps the media box, and so the
-   card height, identical to every other card. */
+/* Stand-in for work with no screenshot — same media box, so the card height
+   matches every other card. */
 .project-img-placeholder {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--icon-grad);
-    color: var(--brand-ink);
-    font-size: 1.9rem;
+    gap: 14px;
+    padding: 0 20px;
+    color: var(--text-3);
+    font-size: 1.4rem;
+}
+
+.project-placeholder-repo {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
 }
 
 .project-card:hover .project-img-placeholder {
@@ -77,14 +77,13 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 22px;
+    padding: 20px;
 }
 
 .project-title {
-    font-size: 1.06rem;
-    font-weight: 700;
+    font-size: 1.02rem;
+    font-weight: 600;
     line-height: 1.4;
-    /* Two lines whether the title needs them or not */
     min-height: calc(2 * 1.4em);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -93,9 +92,9 @@
 }
 
 .project-desc {
-    margin-top: 10px;
+    margin-top: 8px;
     color: var(--text-2);
-    font-size: 0.93rem;
+    font-size: 0.92rem;
     line-height: 1.7;
     min-height: calc(4 * 1.7em);
     display: -webkit-box;
@@ -104,22 +103,22 @@
     overflow: hidden;
 }
 
-/* auto pushes tags + actions to the bottom edge of every card */
+/* auto pushes tags + actions onto the bottom edge of every card */
 .project-tech {
     margin-top: auto;
-    padding-top: 18px;
+    padding-top: 16px;
 }
 
 .project-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 18px;
-    padding-top: 18px;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
     border-top: 1px solid var(--border);
 }
 
-/* No tags on a card? The actions still need to sit at the bottom. */
+/* No tags on a card? The actions still sit on the bottom edge. */
 .project-body > .project-actions:not(.project-tech + .project-actions) {
     margin-top: auto;
 }
@@ -134,16 +133,13 @@
     }
 }
 
-/* Responsive --------------------------------------------------------------
-   Below the two-column layout each card is full width and alone on its row,
-   so the fixed text regions stop earning their keep — show the full copy. */
+/* One card per row: show the full copy; grid-auto-rows still keeps heights
+   matched so the stack reads as one set. */
 @media (max-width: 900px) {
     .projects-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    /* One card per row: show the full copy, but keep heights matched via
-       grid-auto-rows so the stack still reads as one set. */
     .project-title,
     .project-desc {
         display: block;
@@ -152,9 +148,9 @@
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 560px) {
     .project-body {
-        padding: 20px;
+        padding: 18px;
     }
 
     .project-actions .btn {

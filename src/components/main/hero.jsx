@@ -11,18 +11,15 @@ const Hero = () => (
     <section id="top" className="hero">
         <div className="container hero-grid">
             <div className="hero-content">
-                <p className="hero-eyebrow">
-                    <span className="hero-dot" aria-hidden="true"></span>
-                    {profile.role}
-                </p>
+                <p className="hero-eyebrow">{profile.role}</p>
 
                 <h1 className="hero-title">{profile.name}</h1>
 
                 <p className="hero-lead">{lead}</p>
 
-                <ul className="hero-stack">
+                <ul className="hero-stack" aria-label="Core stack">
                     {profile.techStack.map((tech) => (
-                        <li key={tech} className="chip">{tech}</li>
+                        <li key={tech}>{tech}</li>
                     ))}
                 </ul>
 

@@ -16,41 +16,29 @@ const Professional = () => {
                     sub="Roles where I build, maintain and support production systems."
                 />
 
-                <div className="timeline">
+                <ol className="timeline">
                     {experiences.map((experience, index) => (
-                        <article
+                        <li
                             key={`${experience.role} ${experience.company}`}
                             className={`timeline-item reveal ${visible ? 'is-visible' : ''}`}
-                            style={{ '--reveal-delay': `${index * 110}ms` }}
+                            style={{ '--reveal-delay': `${index * 100}ms` }}
                         >
-                            <span className="timeline-node" aria-hidden="true"></span>
+                            <p className="timeline-period">{experience.period}</p>
 
-                            <div className="card timeline-card">
-                                <div className="timeline-head">
-                                    <div>
-                                        <h3 className="timeline-role">{experience.role}</h3>
-                                        <p className="timeline-company">
-                                            <i className="fa-solid fa-building"></i>
-                                            {experience.company}
-                                        </p>
-                                    </div>
-                                    <span className="timeline-period">{experience.period}</span>
-                                </div>
-
+                            <div className="timeline-body">
+                                <h3 className="timeline-role">{experience.role}</h3>
+                                <p className="timeline-company">{experience.company}</p>
                                 <p className="timeline-summary">{experience.description}</p>
 
                                 <ul className="timeline-list">
                                     {experience.highlights.map((highlight, position) => (
-                                        <li key={position}>
-                                            <i className="fa-solid fa-angle-right" aria-hidden="true"></i>
-                                            <span>{highlight}</span>
-                                        </li>
+                                        <li key={position}>{highlight}</li>
                                     ))}
                                 </ul>
                             </div>
-                        </article>
+                        </li>
                     ))}
-                </div>
+                </ol>
             </div>
         </section>
     );
