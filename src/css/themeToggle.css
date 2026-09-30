@@ -2,10 +2,10 @@
     display: inline-flex;
     align-items: center;
     gap: 2px;
-    padding: 4px;
-    /* matches the nav pill group and the resume button at 44px */
+    height: 40px;
+    padding: 3px;
     border: 1px solid var(--border);
-    border-radius: var(--r-full);
+    border-radius: 9px;
     background: var(--surface);
 }
 
@@ -13,11 +13,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    min-height: 34px;
-    padding: 6px 12px;
+    gap: 6px;
+    height: 32px;
+    padding: 0 10px;
     border: 0;
-    border-radius: var(--r-full);
+    border-radius: var(--r-sm);
     background: transparent;
     color: var(--text-3);
     font-family: inherit;
@@ -25,33 +25,31 @@
     font-weight: 500;
     line-height: 1;
     cursor: pointer;
-    transition: color 0.2s var(--ease), background 0.2s var(--ease),
-                box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+    transition: color 0.15s var(--ease), background-color 0.15s var(--ease), transform 0.15s var(--ease);
 }
 
 .theme-option i {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
 }
 
 .theme-option:hover {
     color: var(--text);
-    background: var(--surface-2);
 }
 
 .theme-option.is-active {
-    color: var(--brand-ink);
-    background: var(--brand-soft);
-    box-shadow: inset 0 0 0 1px var(--brand-line);
+    color: var(--text-strong);
+    background: var(--surface-2);
+    box-shadow: inset 0 0 0 1px var(--border-strong);
 }
 
 .theme-option:active {
-    transform: scale(0.95);
-    transition-duration: 0.08s;
+    transform: scale(0.96);
+    transition-duration: 0.06s;
 }
 
 .theme-option:focus-visible {
     outline: 2px solid var(--brand);
-    outline-offset: 2px;
+    outline-offset: 1px;
 }
 
 /* Icon-only below the desktop breakpoint; the button keeps its aria-label */
@@ -69,7 +67,7 @@
     }
 
     .theme-option {
-        min-width: 36px;
-        padding: 6px 9px;
+        min-width: 34px;
+        padding: 0 8px;
     }
 }

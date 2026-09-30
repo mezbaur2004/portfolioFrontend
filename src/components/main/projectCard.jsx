@@ -4,6 +4,9 @@ import { deriveTech } from '../../others/tech.js';
 const ProjectCard = ({ project, delay = 0, visible = true }) => {
     const tech = deriveTech(project);
     const hasLinks = Boolean(project.link || project.gitHubLink);
+    const repoPath = project.gitHubLink
+        ? project.gitHubLink.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '')
+        : '';
 
     return (
         <article
@@ -21,6 +24,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                 ) : (
                     <div className="project-img project-img-placeholder" role="img" aria-label={`${project.title} — no screenshot`}>
                         <i className="fa-solid fa-code" aria-hidden="true"></i>
+                        {repoPath && <span className="project-placeholder-repo">{repoPath}</span>}
                     </div>
                 )}
             </div>

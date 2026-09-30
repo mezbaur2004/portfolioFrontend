@@ -13,7 +13,7 @@ const Contact = () => {
     return (
         <section id="contact" className="section contact-section" ref={ref}>
             <div className="container">
-                <div className={`card contact-card reveal ${visible ? 'is-visible' : ''}`}>
+                <div className={`contact-card reveal ${visible ? 'is-visible' : ''}`}>
                     <div className="contact-intro">
                         <SectionHeading
                             eyebrow="Contact"

@@ -15,7 +15,7 @@ const About = () => {
                 </div>
 
                 <div
-                    className={`about-body card reveal ${visible ? 'is-visible' : ''}`}
+                    className={`about-body reveal ${visible ? 'is-visible' : ''}`}
                     style={{ '--reveal-delay': '110ms' }}
                 >
                     {profile.summary.map((paragraph, index) => (

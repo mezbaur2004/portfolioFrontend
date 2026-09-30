@@ -1,6 +1,5 @@
 .site-footer {
     border-top: 1px solid var(--border);
-    background: linear-gradient(180deg, transparent, var(--footer-fade));
 }
 
 .footer-inner {
@@ -8,50 +7,54 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 22px;
-    padding-top: 34px;
-    padding-bottom: 34px;
+    gap: 16px;
+    padding-top: 28px;
+    padding-bottom: 28px;
 }
 
 .footer-identity {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .footer-name {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--text);
+    color: var(--text-strong);
+    font-size: 0.92rem;
+    font-weight: 600;
     line-height: 1.4;
 }
 
 .footer-role {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
     color: var(--text-3);
-    line-height: 1.6;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    line-height: 1.5;
 }
 
 .footer-socials {
     display: flex;
-    gap: 10px;
+    gap: 2px;
 }
 
 .footer-socials .social-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 0.92rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
 }
 
 .footer-copy {
     color: var(--text-3);
-    font-size: 0.85rem;
+    font-size: 0.84rem;
 }
 
 @media (max-width: 720px) {
     .footer-inner {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+    }
+
+    .footer-socials {
+        margin-left: -8px;
     }
 }
