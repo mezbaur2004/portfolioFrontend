@@ -57,9 +57,9 @@
   },
   {
     "title": "Portfolio Website",
-    "description": "This site — a React and Vite single-page app with client-side routing and static JSON content, plus a Node.js/Express and MongoDB API for authenticated admin updates.",
+    "description": "This site: a React and Vite single-page app with client-side routing, light and dark themes, and all content in static JSON files. The contact form sends mail through EmailJS, so there is no backend to run.",
     "link": "https://mezbaur.vercel.app/",
-    "gitHubLink": "https://github.com/mezbaur2004/portfolioBackend",
+    "gitHubLink": "https://github.com/mezbaur2004/portfolioFrontend",
     "image": "https://i.postimg.cc/QC2qBy59/Screenshot-2025-04-21-220657.png"
   }
 ]
