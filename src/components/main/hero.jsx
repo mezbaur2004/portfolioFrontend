@@ -80,7 +80,6 @@ const Hero = () => (
 
             <div className="hero-visual">
                 <div className="portrait focus-in">
-                    <span className="portrait-corners" aria-hidden="true"></span>
                     <div className="portrait-frame">
                         <img src={profile.photo} alt={profile.name} className="portrait-img" />
                     </div>

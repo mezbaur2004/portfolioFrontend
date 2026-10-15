@@ -44,13 +44,12 @@
     --accent-a: #60a5fa;
     --accent-b: #2dd4bf;
     --live: #34d399;
-    --live-ring: rgba(52, 211, 153, 0.55);
-    --trace: rgba(125, 178, 255, 0.24);
+    --live-ring: rgba(52, 211, 153, 0.18);
+    --trace: rgba(125, 178, 255, 0.17);
     --pulse: #2dd4bf;
     --grid-line: rgba(125, 178, 255, 0.1);
-    --glow-a: rgba(37, 99, 235, 0.5);
-    --glow-b: rgba(45, 212, 191, 0.26);
-    --corner: rgba(125, 178, 255, 0.8);
+    --glow-a: rgba(37, 99, 235, 0.26);
+    --glow-b: rgba(45, 212, 191, 0.12);
 
     color-scheme: dark;
 }
@@ -90,13 +89,12 @@
     --accent-a: #1d4ed8;
     --accent-b: #0f766e;
     --live: #047857;
-    --live-ring: rgba(4, 120, 87, 0.45);
-    --trace: rgba(37, 99, 235, 0.24);
+    --live-ring: rgba(4, 120, 87, 0.16);
+    --trace: rgba(37, 99, 235, 0.16);
     --pulse: #0d9488;
     --grid-line: rgba(37, 99, 235, 0.11);
-    --glow-a: rgba(37, 99, 235, 0.24);
-    --glow-b: rgba(13, 148, 136, 0.2);
-    --corner: rgba(37, 99, 235, 0.65);
+    --glow-a: rgba(37, 99, 235, 0.12);
+    --glow-b: rgba(13, 148, 136, 0.08);
 
     color-scheme: light;
 }
@@ -394,29 +392,9 @@ p {
     to { opacity: 1; transform: none; }
 }
 
-/* Corner marks — the viewfinder motif used around the portrait and on
-   blueprint tiles. Eight hairlines, coloured by --corner. */
-.portrait-corners,
-.blueprint-corners {
-    --len: 18px;
-    --w: 1.5px;
-    position: absolute;
-    pointer-events: none;
-    background:
-        linear-gradient(var(--corner), var(--corner)) top left / var(--len) var(--w),
-        linear-gradient(var(--corner), var(--corner)) top left / var(--w) var(--len),
-        linear-gradient(var(--corner), var(--corner)) top right / var(--len) var(--w),
-        linear-gradient(var(--corner), var(--corner)) top right / var(--w) var(--len),
-        linear-gradient(var(--corner), var(--corner)) bottom left / var(--len) var(--w),
-        linear-gradient(var(--corner), var(--corner)) bottom left / var(--w) var(--len),
-        linear-gradient(var(--corner), var(--corner)) bottom right / var(--len) var(--w),
-        linear-gradient(var(--corner), var(--corner)) bottom right / var(--w) var(--len);
-    background-repeat: no-repeat;
-}
-
-/* Ambient backdrop (hero, contact): soft glows, a faint engineering grid,
-   and circuit traces entering from both edges with data pulses running
-   along them. Fades out towards the top and bottom of the section. */
+/* Ambient backdrop (hero, contact): faint glows and circuit traces
+   entering from both edges, with an occasional data pulse running along
+   them. Fades out towards the top and bottom of the section. */
 .backdrop {
     position: absolute;
     inset: 0;
@@ -425,19 +403,6 @@ p {
     pointer-events: none;
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 82%, transparent);
     mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 82%, transparent);
-}
-
-.backdrop-grid {
-    position: absolute;
-    inset: 0;
-    --line: color-mix(in srgb, var(--grid-line) 70%, transparent);
-    background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 48px 48px;
-    background-position: center top;
-    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 35%, #000 15%, transparent 75%);
-    mask-image: radial-gradient(ellipse 70% 65% at 50% 35%, #000 15%, transparent 75%);
 }
 
 /* Each circuit hugs one edge and fades out towards the centre, so it never
@@ -464,34 +429,30 @@ p {
 
 .circuit-traces {
     stroke: var(--trace);
-    stroke-width: 1.25;
-}
-
-.circuit-traces rect {
-    fill: var(--bg);
+    stroke-width: 1;
 }
 
 .circuit-vias circle {
     fill: var(--bg);
     stroke: var(--trace);
-    stroke-width: 1.25;
+    stroke-width: 1;
 }
 
-/* A short bright dash runs from the edge to the via, then waits off the end
-   of the trace for the rest of the cycle. pathLength="100" on each path makes
+/* A short dash runs from the edge to the via, then waits off the end of
+   the trace for most of the cycle. pathLength="100" on each path makes
    these numbers independent of how long the trace is. */
 .circuit-pulses path {
     stroke: var(--pulse);
-    stroke-width: 2;
-    stroke-dasharray: 9 191;
-    stroke-dashoffset: 9;
-    filter: drop-shadow(0 0 3px var(--pulse));
-    animation: pulse-run var(--run, 5s) linear var(--wait, 0s) infinite;
+    stroke-width: 1.5;
+    stroke-dasharray: 7 193;
+    stroke-dashoffset: 7;
+    opacity: 0.8;
+    animation: pulse-run var(--run, 9s) ease-in-out var(--wait, 0s) infinite;
 }
 
 @keyframes pulse-run {
-    0% { stroke-dashoffset: 9; }
-    65%, 100% { stroke-dashoffset: -100; }
+    0% { stroke-dashoffset: 7; }
+    45%, 100% { stroke-dashoffset: -100; }
 }
 
 .backdrop-glow {
@@ -506,7 +467,7 @@ p {
     top: -170px;
     left: -140px;
     background: radial-gradient(circle, var(--glow-a), transparent 70%);
-    animation: glow-a 16s ease-in-out infinite alternate;
+    animation: glow-a 30s ease-in-out infinite alternate;
 }
 
 .backdrop-glow-b {
@@ -515,7 +476,7 @@ p {
     top: 8%;
     right: -140px;
     background: radial-gradient(circle, var(--glow-b), transparent 70%);
-    animation: glow-b 19s ease-in-out infinite alternate;
+    animation: glow-b 36s ease-in-out infinite alternate;
 }
 
 .backdrop.is-contact .backdrop-glow-a {
@@ -530,11 +491,11 @@ p {
 }
 
 @keyframes glow-a {
-    to { transform: translate3d(120px, 70px, 0) scale(1.2); }
+    to { transform: translate3d(60px, 40px, 0) scale(1.08); }
 }
 
 @keyframes glow-b {
-    to { transform: translate3d(-100px, 60px, 0) scale(1.15); }
+    to { transform: translate3d(-50px, 30px, 0) scale(1.06); }
 }
 
 /* ==========================================================================
