@@ -4,7 +4,7 @@ export const THEME_OPTIONS = ['light', 'dark', 'system'];
 
 const STORAGE_KEY = 'theme';
 const DARK_QUERY = '(prefers-color-scheme: dark)';
-const THEME_COLOR = { dark: '#0b0e14', light: '#fbfbfc' };
+const THEME_COLOR = { dark: '#131924', light: '#eef1f5' };
 
 const readPreference = () => {
     try {

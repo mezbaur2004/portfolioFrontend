@@ -9,18 +9,18 @@
    ========================================================================== */
 :root,
 :root[data-theme='dark'] {
-    --bg: #0b0e14;
-    --surface: #10141c;
-    --surface-2: #161b25;
-    --header-bg: rgba(11, 14, 20, 0.82);
+    --bg: #131924;
+    --surface: #19202d;
+    --surface-2: #202837;
+    --header-bg: rgba(19, 25, 36, 0.82);
 
-    --border: #1f2531;
-    --border-strong: #2c3342;
+    --border: #29313f;
+    --border-strong: #374051;
 
     --text: #e6e9ef;
     --text-strong: #f5f7fa;
-    --text-2: #9ba3b2;
-    --text-3: #7a8394;
+    --text-2: #a4acbb;
+    --text-3: #8892a3;
 
     /* #2563eb, not a lighter blue: white button text on it clears AA */
     --brand: #2563eb;
@@ -29,7 +29,7 @@
     --brand-soft: rgba(59, 130, 246, 0.1);
     --on-brand: #ffffff;
 
-    --field-bg: #0e121a;
+    --field-bg: #161c28;
     --focus-ring: rgba(59, 130, 246, 0.35);
     --danger-bg: rgba(248, 113, 113, 0.08);
     --danger-line: rgba(248, 113, 113, 0.28);
@@ -37,36 +37,36 @@
     --selection-bg: rgba(59, 130, 246, 0.35);
     --selection-ink: #ffffff;
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-    --shadow-md: 0 12px 28px -16px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 12px 28px -16px rgba(0, 0, 0, 0.55);
 
     /* Motion & ambient layer */
-    --accent-a: #6ea8fe;
-    --accent-b: #22d3ee;
+    --accent-a: #60a5fa;
+    --accent-b: #2dd4bf;
     --live: #34d399;
     --live-ring: rgba(52, 211, 153, 0.55);
-    --dot: rgba(110, 168, 254, 0.17);
-    --grid-line: rgba(110, 168, 254, 0.08);
-    --glow-a: rgba(37, 99, 235, 0.42);
-    --glow-b: rgba(34, 211, 238, 0.22);
-    --corner: rgba(110, 168, 254, 0.75);
+    --dot: rgba(125, 178, 255, 0.3);
+    --grid-line: rgba(125, 178, 255, 0.1);
+    --glow-a: rgba(37, 99, 235, 0.5);
+    --glow-b: rgba(45, 212, 191, 0.26);
+    --corner: rgba(125, 178, 255, 0.8);
 
     color-scheme: dark;
 }
 
 :root[data-theme='light'] {
-    --bg: #fbfbfc;
-    --surface: #ffffff;
-    --surface-2: #f3f4f6;
-    --header-bg: rgba(251, 251, 252, 0.85);
+    --bg: #eef1f5;
+    --surface: #f8f9fb;
+    --surface-2: #e6eaf0;
+    --header-bg: rgba(238, 241, 245, 0.85);
 
-    --border: #e4e6eb;
-    --border-strong: #d1d5dc;
+    --border: #d7dde5;
+    --border-strong: #c2cad5;
 
     --text: #0e1116;
     --text-strong: #05070a;
-    --text-2: #4b5261;
-    --text-3: #636b7a;
+    --text-2: #444b59;
+    --text-3: #576070;
 
     --brand: #2563eb;
     --brand-hover: #1d4fd0;
@@ -74,7 +74,7 @@
     --brand-soft: rgba(37, 99, 235, 0.07);
     --on-brand: #ffffff;
 
-    --field-bg: #ffffff;
+    --field-bg: #fbfcfd;
     --focus-ring: rgba(37, 99, 235, 0.25);
     --danger-bg: rgba(220, 38, 38, 0.06);
     --danger-line: rgba(220, 38, 38, 0.22);
@@ -82,19 +82,19 @@
     --selection-bg: rgba(37, 99, 235, 0.16);
     --selection-ink: #0e1116;
 
-    --shadow-sm: 0 1px 2px rgba(15, 20, 30, 0.05);
-    --shadow-md: 0 12px 28px -18px rgba(15, 20, 30, 0.22);
+    --shadow-sm: 0 1px 2px rgba(15, 20, 30, 0.06);
+    --shadow-md: 0 12px 28px -18px rgba(15, 20, 30, 0.26);
 
     /* Motion & ambient layer */
     --accent-a: #1d4ed8;
-    --accent-b: #0e7490;
-    --live: #059669;
-    --live-ring: rgba(5, 150, 105, 0.45);
-    --dot: rgba(37, 99, 235, 0.2);
-    --grid-line: rgba(37, 99, 235, 0.08);
-    --glow-a: rgba(37, 99, 235, 0.16);
-    --glow-b: rgba(14, 165, 233, 0.14);
-    --corner: rgba(37, 99, 235, 0.6);
+    --accent-b: #0f766e;
+    --live: #047857;
+    --live-ring: rgba(4, 120, 87, 0.45);
+    --dot: rgba(37, 99, 235, 0.3);
+    --grid-line: rgba(37, 99, 235, 0.11);
+    --glow-a: rgba(37, 99, 235, 0.24);
+    --glow-b: rgba(13, 148, 136, 0.2);
+    --corner: rgba(37, 99, 235, 0.65);
 
     color-scheme: light;
 }
@@ -420,16 +420,16 @@ p {
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-    -webkit-mask-image: radial-gradient(ellipse 80% 85% at 50% 40%, #000 25%, transparent 80%);
-    mask-image: radial-gradient(ellipse 80% 85% at 50% 40%, #000 25%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 90% at 50% 40%, #000 35%, transparent 88%);
+    mask-image: radial-gradient(ellipse 85% 90% at 50% 40%, #000 35%, transparent 88%);
 }
 
 .backdrop-dots {
     position: absolute;
     inset: -240px;
-    background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.7px);
+    background-image: radial-gradient(circle, var(--dot) 1.3px, transparent 1.9px);
     background-size: 22px 22px;
-    animation: dot-drift 48s linear infinite;
+    animation: dot-drift 36s linear infinite;
 }
 
 /* Moves exactly ten tiles, so the loop is seamless */
@@ -440,7 +440,7 @@ p {
 .backdrop-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(70px);
+    filter: blur(64px);
 }
 
 .backdrop-glow-a {
@@ -449,7 +449,7 @@ p {
     top: -170px;
     left: -140px;
     background: radial-gradient(circle, var(--glow-a), transparent 70%);
-    animation: glow-a 22s ease-in-out infinite alternate;
+    animation: glow-a 16s ease-in-out infinite alternate;
 }
 
 .backdrop-glow-b {
@@ -458,7 +458,7 @@ p {
     top: 8%;
     right: -140px;
     background: radial-gradient(circle, var(--glow-b), transparent 70%);
-    animation: glow-b 26s ease-in-out infinite alternate;
+    animation: glow-b 19s ease-in-out infinite alternate;
 }
 
 .backdrop.is-contact .backdrop-glow-a {
@@ -473,11 +473,11 @@ p {
 }
 
 @keyframes glow-a {
-    to { transform: translate3d(70px, 50px, 0) scale(1.12); }
+    to { transform: translate3d(120px, 70px, 0) scale(1.2); }
 }
 
 @keyframes glow-b {
-    to { transform: translate3d(-60px, 40px, 0) scale(1.08); }
+    to { transform: translate3d(-100px, 60px, 0) scale(1.15); }
 }
 
 /* ==========================================================================
