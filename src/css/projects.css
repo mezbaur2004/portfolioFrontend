@@ -62,8 +62,7 @@
 }
 
 /* Blueprint tile ------------------------------------------------------------
-   Stand-in for work with no interface to screenshot: a drafting grid that
-   drifts while the card is hovered, viewfinder corners that close in, and
+   Stand-in for work with no interface to screenshot: a drafting grid and
    the repository path. Same media box, so card heights still match. */
 .blueprint {
     position: relative;
@@ -89,30 +88,6 @@
     background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
     -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%);
     mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%);
-    animation: grid-pan 14s linear infinite;
-    animation-play-state: paused;
-}
-
-.project-card:hover .blueprint-grid {
-    animation-play-state: running;
-}
-
-/* One full 40px tile, so the loop is seamless. Background-position, not
-   transform, so the fade-out mask stays put while the lines move. */
-@keyframes grid-pan {
-    to { background-position: 40px 40px, 40px 40px, 40px 40px, 40px 40px; }
-}
-
-.blueprint-corners {
-    --len: 14px;
-    inset: 18px;
-    opacity: 0.7;
-    transition: inset 0.45s var(--ease-out), opacity 0.3s var(--ease);
-}
-
-.project-card:hover .blueprint-corners {
-    inset: 12px;
-    opacity: 1;
 }
 
 .blueprint-content {
@@ -137,11 +112,6 @@
     color: var(--brand-ink);
     font-size: 1rem;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.4s var(--ease-out);
-}
-
-.project-card:hover .blueprint-icon {
-    transform: translateY(-2px);
 }
 
 .blueprint-repo {

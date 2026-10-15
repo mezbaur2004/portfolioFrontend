@@ -22,10 +22,9 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                     />
                 ) : (
                     // Work with no interface to screenshot gets a blueprint
-                    // tile: drafting grid, corner marks and the repository.
+                    // tile: a drafting grid and the repository.
                     <div className="project-img blueprint" role="img" aria-label={`${project.title}, no screenshot`}>
                         <span className="blueprint-grid" aria-hidden="true"></span>
-                        <span className="blueprint-corners" aria-hidden="true"></span>
                         <span className="blueprint-content">
                             <span className="blueprint-icon" aria-hidden="true">
                                 <i className="fa-solid fa-code"></i>
