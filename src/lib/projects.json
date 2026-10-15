@@ -7,25 +7,11 @@
     "image": ""
   },
   {
-    "title": "Jolly Learning Bangladesh",
-    "description": "Production Shopify storefront for Jolly Learning UK's local partner in Bangladesh: theme and Liquid customization, product setup, SEO and deployment. Takes orders by cash on delivery and workshop registrations by manual bKash/Nagad payment; the SSLCommerz checkout is built and waiting on a live merchant account.",
-    "link": "https://jollylearningbd.com",
-    "gitHubLink": "",
-    "image": "/jolly-learning-bangladesh.jpg"
-  },
-  {
     "title": "Zoom Attendance for Moodle",
     "description": "Moodle plugin that turns the session data the Zoom plugin already stores into per-class attendance for students and teachers: interval-union time clipped to each class, rosters frozen when a class ends, logged corrections, PHPUnit/Behat tests and CI on Moodle 4.1–5.0. Designed, reviewed and tested by me; implementation AI-assisted.",
     "link": "",
     "gitHubLink": "https://github.com/mezbaur2004/moodle-local_zoomattendance",
     "image": ""
-  },
-  {
-    "title": "Fulkopi - Full-stack E-commerce Platform (with admin dashboard)",
-    "description": "MERN-stack eCommerce platform with Google OAuth and JWT authentication, role-based access control, and an admin dashboard. Integrates SSLCommerz payments on a Docker-ready Express backend.",
-    "link": "https://fulkopi-frontend.vercel.app/",
-    "gitHubLink": "https://github.com/mezbaur2004/fulkopiBackend",
-    "image": "https://i.postimg.cc/qR2BCHP5/Screenshot-2025-10-23-212215.png"
   },
   {
     "title": "Moodle Patch Manager",
@@ -35,8 +21,31 @@
     "image": ""
   },
   {
+    "title": "Jolly Learning Bangladesh",
+    "description": "Production Shopify storefront for Jolly Learning UK's local partner in Bangladesh: theme and Liquid customization, product setup, SEO and deployment. Takes orders by cash on delivery and workshop registrations by manual bKash/Nagad payment; the SSLCommerz checkout is built and waiting on a live merchant account.",
+    "link": "https://jollylearningbd.com",
+    "gitHubLink": "",
+    "image": "/jolly-learning-bangladesh.jpg"
+  },
+  {
+    "title": "Upstream fix for Moodle's Zoom plugin",
+    "description": "Reported that Moodle's Zoom plugin records attendance for recurring meetings but never grades it, and argued for a fix over removing the feature. The maintainer agreed to a focused PR that grades each occurrence; it passes CI and is in review.",
+    "link": "https://github.com/jrchamp/moodle-mod_zoom/pull/730",
+    "linkLabel": "Pull request",
+    "gitHubLink": "https://github.com/jrchamp/moodle-mod_zoom/issues/728",
+    "gitHubLabel": "Issue #728",
+    "image": ""
+  },
+  {
+    "title": "Fulkopi",
+    "description": "Full-stack MERN store with Google OAuth and JWT authentication, role-based access control, an admin dashboard, and SSLCommerz checkout on a Docker-ready Express backend.",
+    "link": "https://fulkopi-frontend.vercel.app/",
+    "gitHubLink": "https://github.com/mezbaur2004/fulkopiBackend",
+    "image": "https://i.postimg.cc/qR2BCHP5/Screenshot-2025-10-23-212215.png"
+  },
+  {
     "title": "Inventory Management System",
-    "description": "Full-stack MERN inventory application for product, brand, and category management, with Redux Toolkit state and data consistency rules that block deleting a brand still linked to products.",
+    "description": "REST API and React/Redux dashboard for products, purchases, sales, returns, and expenses. A purchase, sale or return and its line items are written and deleted in one MongoDB transaction.",
     "link": "https://inventory-frontend-mezbaur.vercel.app/",
     "gitHubLink": "https://github.com/mezbaur2004/inventoryBackend",
     "image": "https://i.postimg.cc/3JzYcVLp/Screenshot-2025-04-23-010518.png"

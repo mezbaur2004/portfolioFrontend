@@ -26,6 +26,14 @@ const VOCABULARY = [
     'WordPress',
     'WooCommerce',
     'Moodle',
+    'PHPUnit',
+    'Behat',
+    'PostgreSQL',
+    'MariaDB',
+    'Vitest',
+    'GitHub Actions',
+    'Nginx',
+    'EmailJS',
     'REST API',
 ];
 

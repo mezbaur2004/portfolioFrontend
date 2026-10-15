@@ -16,8 +16,9 @@ const PageTopbar = ({ label = 'Back to portfolio' }) => (
             <div className="header-actions">
                 <ThemeToggle />
 
-                <Link to="/" className="btn btn-ghost btn-sm">
-                    <i className="fa-solid fa-arrow-left"></i> {label}
+                <Link to="/" className="btn btn-ghost btn-sm topbar-back" aria-label={label}>
+                    <i className="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    <span className="topbar-back-label">{label}</span>
                 </Link>
             </div>
         </div>

@@ -40,6 +40,17 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
     --shadow-md: 0 12px 28px -16px rgba(0, 0, 0, 0.6);
 
+    /* Motion & ambient layer */
+    --accent-a: #6ea8fe;
+    --accent-b: #22d3ee;
+    --live: #34d399;
+    --live-ring: rgba(52, 211, 153, 0.55);
+    --dot: rgba(110, 168, 254, 0.17);
+    --grid-line: rgba(110, 168, 254, 0.08);
+    --glow-a: rgba(37, 99, 235, 0.42);
+    --glow-b: rgba(34, 211, 238, 0.22);
+    --corner: rgba(110, 168, 254, 0.75);
+
     color-scheme: dark;
 }
 
@@ -74,6 +85,17 @@
     --shadow-sm: 0 1px 2px rgba(15, 20, 30, 0.05);
     --shadow-md: 0 12px 28px -18px rgba(15, 20, 30, 0.22);
 
+    /* Motion & ambient layer */
+    --accent-a: #1d4ed8;
+    --accent-b: #0e7490;
+    --live: #059669;
+    --live-ring: rgba(5, 150, 105, 0.45);
+    --dot: rgba(37, 99, 235, 0.2);
+    --grid-line: rgba(37, 99, 235, 0.08);
+    --glow-a: rgba(37, 99, 235, 0.16);
+    --glow-b: rgba(14, 165, 233, 0.14);
+    --corner: rgba(37, 99, 235, 0.6);
+
     color-scheme: light;
 }
 
@@ -90,6 +112,7 @@
     --gutter: 24px;
     --card-pad: clamp(22px, 2.6vw, 28px);
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
     --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -199,10 +222,53 @@ p {
 }
 
 .eyebrow {
-    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--brand-ink);
+}
+
+.eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s var(--ease-out) 0.1s;
+}
+
+/* Section headings: the rule draws in, then title and sub-line rise after */
+.heading-reveal .eyebrow,
+.heading-reveal .section-title,
+.heading-reveal .section-sub {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.heading-reveal .section-title {
+    transition-delay: 0.08s;
+}
+
+.heading-reveal .section-sub {
+    transition-delay: 0.16s;
+}
+
+.heading-reveal.is-visible .eyebrow,
+.heading-reveal.is-visible .section-title,
+.heading-reveal.is-visible .section-sub {
+    opacity: 1;
+    transform: none;
+}
+
+.heading-reveal.is-visible .eyebrow::before {
+    transform: scaleX(1);
 }
 
 .section-title {
@@ -311,6 +377,110 @@ p {
 }
 
 /* ==========================================================================
+   Motion primitives
+   ========================================================================== */
+
+/* Load-time entrance, staggered by --step (set inline per element) */
+.rise {
+    opacity: 0;
+    animation: rise 0.7s var(--ease-out) forwards;
+    animation-delay: calc(var(--step, 0) * 90ms + 80ms);
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* Corner marks — the viewfinder motif used around the portrait and on
+   blueprint tiles. Eight hairlines, coloured by --corner. */
+.portrait-corners,
+.blueprint-corners {
+    --len: 18px;
+    --w: 1.5px;
+    position: absolute;
+    pointer-events: none;
+    background:
+        linear-gradient(var(--corner), var(--corner)) top left / var(--len) var(--w),
+        linear-gradient(var(--corner), var(--corner)) top left / var(--w) var(--len),
+        linear-gradient(var(--corner), var(--corner)) top right / var(--len) var(--w),
+        linear-gradient(var(--corner), var(--corner)) top right / var(--w) var(--len),
+        linear-gradient(var(--corner), var(--corner)) bottom left / var(--len) var(--w),
+        linear-gradient(var(--corner), var(--corner)) bottom left / var(--w) var(--len),
+        linear-gradient(var(--corner), var(--corner)) bottom right / var(--len) var(--w),
+        linear-gradient(var(--corner), var(--corner)) bottom right / var(--w) var(--len);
+    background-repeat: no-repeat;
+}
+
+/* Ambient backdrop (hero, contact): drifting dot grid + two soft glows,
+   masked so it fades out before reaching the section edges. */
+.backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 80% 85% at 50% 40%, #000 25%, transparent 80%);
+    mask-image: radial-gradient(ellipse 80% 85% at 50% 40%, #000 25%, transparent 80%);
+}
+
+.backdrop-dots {
+    position: absolute;
+    inset: -240px;
+    background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.7px);
+    background-size: 22px 22px;
+    animation: dot-drift 48s linear infinite;
+}
+
+/* Moves exactly ten tiles, so the loop is seamless */
+@keyframes dot-drift {
+    to { transform: translate3d(220px, 110px, 0); }
+}
+
+.backdrop-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+}
+
+.backdrop-glow-a {
+    width: 480px;
+    height: 480px;
+    top: -170px;
+    left: -140px;
+    background: radial-gradient(circle, var(--glow-a), transparent 70%);
+    animation: glow-a 22s ease-in-out infinite alternate;
+}
+
+.backdrop-glow-b {
+    width: 400px;
+    height: 400px;
+    top: 8%;
+    right: -140px;
+    background: radial-gradient(circle, var(--glow-b), transparent 70%);
+    animation: glow-b 26s ease-in-out infinite alternate;
+}
+
+.backdrop.is-contact .backdrop-glow-a {
+    top: auto;
+    bottom: -200px;
+    left: 4%;
+}
+
+.backdrop.is-contact .backdrop-glow-b {
+    top: -160px;
+    right: 6%;
+}
+
+@keyframes glow-a {
+    to { transform: translate3d(70px, 50px, 0) scale(1.12); }
+}
+
+@keyframes glow-b {
+    to { transform: translate3d(-60px, 40px, 0) scale(1.08); }
+}
+
+/* ==========================================================================
    Scroll reveal — a short fade and settle, nothing more
    ========================================================================== */
 .reveal {
@@ -338,9 +508,23 @@ p {
         transition-duration: 0.001ms !important;
     }
 
-    .reveal {
+    .reveal,
+    .rise,
+    .heading-reveal .eyebrow,
+    .heading-reveal .section-title,
+    .heading-reveal .section-sub {
         opacity: 1;
         transform: none;
+    }
+
+    .eyebrow::before {
+        transform: none;
+    }
+
+    /* the ambient layer stays, but holds still */
+    .backdrop-dots,
+    .backdrop-glow {
+        animation: none !important;
     }
 }
 

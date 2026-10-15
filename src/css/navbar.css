@@ -210,3 +210,11 @@
         height: 60px;
     }
 }
+
+/* Subpage header on the narrowest phones: brand, theme toggle and the back
+   label don't fit on one line, so the back button keeps only its arrow. */
+@media (max-width: 400px) {
+    .topbar-back-label {
+        display: none;
+    }
+}

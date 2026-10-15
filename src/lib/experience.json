@@ -3,27 +3,24 @@
     "role": "Assistant Programmer",
     "company": "Pedago Academy, Dhaka",
     "period": "January 2026 – Present",
-    "description": "Developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms while supporting deployment, infrastructure, and business-critical integrations.",
+    "description": "Primary in-house software engineer, responsible for the production Moodle LMS, the WordPress/WooCommerce platform and the Linux servers they run on.",
     "highlights": [
-      "Troubleshoot, maintain, and extend the production Moodle LMS and Shopify/WooCommerce platforms, including bug fixes on the Linux production server, plugin evaluation, and configuration.",
-      "Develop Node.js applications and REST API integrations connecting payment gateways, business automation workflows, and third-party systems.",
-      "Developed and launched the Jolly Learning Bangladesh Shopify store, including store setup, theme customization, SEO, and deployment.",
-      "Support Linux VPS infrastructure — Nginx, PHP-FPM, SSL/TLS, and SSH — with backup and disaster recovery and performance optimization.",
-      "Author technical SOPs and operational documentation, including server architecture and deployment guides.",
-      "Coordinate technical requirements with external development teams to support platform enhancements and integrations."
+      "Administer the production Moodle LMS and maintain the WordPress/WooCommerce platform, from plugin evaluation and feature work to production debugging through logs and SQL.",
+      "Build Node.js integrations for payments, authentication, and automation.",
+      "Run the Linux VPS infrastructure: deployments, Nginx, PHP-FPM, SSL/TLS, backups, and monitoring.",
+      "Developed and launched the Jolly Learning Bangladesh Shopify store: store setup, Liquid theme customization, product configuration, and SEO.",
+      "Authored 20+ technical documents, including SOPs, server architecture, deployment guides, and disaster recovery plans."
     ]
   },
   {
     "role": "Intern Software Engineer",
     "company": "Solution Spin Ltd, Dhaka",
     "period": "August 2025 – January 2026",
-    "description": "Worked alongside senior developers to build and improve production-ready MERN applications while following modern software development practices and collaborative workflows.",
+    "description": "Worked with senior engineers on frontend and backend features for production MERN applications.",
     "highlights": [
-      "Developed frontend and backend features for production-ready MERN stack applications alongside senior engineers.",
-      "Implemented React routing, Redux Toolkit state management, and form validation.",
-      "Built and integrated REST APIs between frontend and backend services.",
-      "Participated in debugging, code reviews, and feature implementation.",
-      "Improved application maintainability through clean coding practices and structured project organization."
+      "React routing, Redux Toolkit state management, and form validation.",
+      "REST APIs between frontend and backend services.",
+      "Debugging and code reviews."
     ]
   }
 ]

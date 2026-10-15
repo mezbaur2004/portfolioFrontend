@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import profile from '../../lib/profile.json';
+import Backdrop from './backdrop.jsx';
+import { externalProps, readableUrl } from '../../others/links.js';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
 import '../../css/contact.css';
-
-const readableUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
 const Contact = () => {
     const [ref, visible] = useReveal();
 
     return (
         <section id="contact" className="section contact-section" ref={ref}>
+            <Backdrop variant="is-contact" />
             <div className="container">
                 <div className={`contact-card reveal ${visible ? 'is-visible' : ''}`}>
                     <div className="contact-intro">
@@ -31,8 +32,7 @@ const Contact = () => {
                                 key={social.label}
                                 href={social.url}
                                 className="contact-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                {...externalProps(social.url)}
                             >
                                 <span className="contact-link-icon">
                                     <i className={social.icon}></i>
