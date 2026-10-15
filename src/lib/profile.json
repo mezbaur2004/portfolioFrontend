@@ -20,8 +20,8 @@
     "Shopify"
   ],
   "summary": [
-    "At Pedago Academy I'm the primary in-house software engineer. I administer the production Moodle LMS, maintain the WordPress/WooCommerce platform, build the Node.js integrations for payments, authentication and automation, and run the Linux VPS infrastructure underneath them.",
-    "Most of the work is making separate systems agree: a Shopify order with an SSLCommerz payment, a Zoom session with a Moodle attendance record. I debug through logs and SQL, test payment flows end to end against the gateway's sandbox, and write things down — 20+ technical documents so far, from SOPs and deployment guides to disaster recovery plans."
+    "Software engineer with experience developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms. Proficient in JavaScript and TypeScript across the MERN stack, and experienced in customizing Moodle LMS, extending WordPress and WooCommerce, integrating Shopify with custom backends, and building secure REST APIs. Comfortable working with authentication and authorization, payment gateway integrations, third-party systems, and both document and relational databases.",
+    "Beyond application development, experienced in Linux server administration, VPS management, deployment, performance optimization, backup and disaster recovery, and troubleshooting production environments. Enjoy solving complex technical challenges, improving system reliability, and delivering maintainable, well-documented solutions that provide long term value for both users and businesses."
   ],
   "socials": [
     {
