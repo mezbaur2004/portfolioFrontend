@@ -1,38 +1,125 @@
 .hero {
     position: relative;
-    padding: clamp(48px, 8vw, 104px) 0 clamp(16px, 3vw, 40px);
+    padding: clamp(56px, 9vw, 116px) 0 clamp(40px, 6vw, 84px);
     overflow-x: clip;
+}
+
+.hero > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
     align-items: center;
     gap: clamp(32px, 6vw, 80px);
 }
 
-/* Content ---------------------------------------------------------------- */
-.hero-eyebrow {
+/* Live badge ------------------------------------------------------------- */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 6px 14px 6px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-full);
+    background: var(--surface);
+    color: var(--text-2);
     font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--brand-ink);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
+.hero-badge-dot {
+    flex: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--live);
+    animation: live-pulse 2.2s ease-out infinite;
+}
+
+@keyframes live-pulse {
+    0% { box-shadow: 0 0 0 0 var(--live-ring); }
+    70% { box-shadow: 0 0 0 7px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Name, role, headline --------------------------------------------------- */
 .hero-title {
-    margin-top: 14px;
-    font-size: clamp(2.4rem, 5.4vw, 3.6rem);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    margin-top: 22px;
+    font-size: clamp(2.5rem, 5.6vw, 3.9rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
     color: var(--text-strong);
 }
 
+.hero-role {
+    margin-top: 12px;
+    color: var(--text-3);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.hero-headline {
+    margin-top: 28px;
+    max-width: 30rem;
+    color: var(--text-strong);
+    font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+    font-weight: 600;
+    line-height: 1.32;
+    letter-spacing: -0.025em;
+}
+
+/* The accent phrase: a slow colour sheen, and an underline that draws
+   itself in once the headline has landed. */
+.accent {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b), var(--accent-a));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: sheen 7s ease-in-out 1.6s infinite;
+}
+
+.accent::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b), var(--accent-a));
+    background-size: 200% 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation:
+        draw 0.8s var(--ease-out) 1.05s forwards,
+        sheen 7s ease-in-out 1.85s infinite;
+}
+
+@keyframes draw {
+    to { transform: scaleX(1); }
+}
+
+@keyframes sheen {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
 .hero-lead {
-    margin-top: 20px;
+    margin-top: 14px;
     max-width: 34rem;
     color: var(--text-2);
-    font-size: clamp(1.02rem, 1.3vw, 1.12rem);
-    line-height: 1.7;
+    font-size: clamp(1rem, 1.25vw, 1.06rem);
+    line-height: 1.75;
 }
 
 /* Core stack as one quiet line, separated rather than boxed */
@@ -43,14 +130,14 @@
     margin: 22px 0 0;
     padding: 0;
     list-style: none;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
     color: var(--text-3);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
 }
 
 .hero-stack li:not(:last-child)::after {
     content: '/';
-    margin: 0 10px;
+    margin: 0 9px;
     color: var(--border-strong);
 }
 
@@ -58,13 +145,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 32px;
+    margin-top: 30px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
 }
 
 .hero-socials {
     display: flex;
-    gap: 4px;
-    margin-top: 24px;
+    gap: 6px;
+    margin-top: 22px;
     margin-left: -8px;
 }
 
@@ -74,23 +165,28 @@
     justify-content: center;
     width: 38px;
     height: 38px;
+    border: 1px solid transparent;
     border-radius: var(--r-md);
     color: var(--text-3);
-    font-size: 1.05rem;
-    transition: color 0.15s var(--ease), background-color 0.15s var(--ease), transform 0.15s var(--ease);
+    font-size: 1.02rem;
+    transition: color 0.2s var(--ease), background-color 0.2s var(--ease),
+                border-color 0.2s var(--ease), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease);
 }
 
 .social-btn:hover {
-    color: var(--text-strong);
-    background: var(--surface-2);
+    transform: translateY(-3px);
+    color: var(--brand-ink);
+    background: var(--brand-soft);
+    border-color: var(--border-strong);
+    box-shadow: 0 10px 20px -14px var(--brand);
 }
 
 .social-btn:active {
-    transform: scale(0.94);
+    transform: translateY(-1px) scale(0.95);
     transition-duration: 0.06s;
 }
 
-/* Portrait ---------------------------------------------------------------- */
+/* Portrait: thin animated ring, framed by corner marks that close in on load */
 .hero-visual {
     display: flex;
     justify-content: flex-end;
@@ -98,13 +194,35 @@
 
 .portrait {
     position: relative;
-    width: min(100%, 280px);
+    width: min(100%, 260px);
     aspect-ratio: 1 / 1;
 }
 
-/* Hairline ring around a true circle. The ring is the 2px of padding left
-   showing around the image; a conic gradient rotates behind it so a soft
-   highlight travels around the edge. */
+.portrait-corners {
+    --len: 22px;
+    inset: -18px;
+}
+
+.focus-in .portrait-corners {
+    opacity: 0;
+    animation: corners-in 0.9s var(--ease-out) 0.45s forwards;
+}
+
+.focus-in .portrait-frame {
+    opacity: 0;
+    animation: portrait-in 0.9s var(--ease-out) 0.2s forwards;
+}
+
+@keyframes corners-in {
+    from { opacity: 0; transform: scale(1.14); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes portrait-in {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: none; }
+}
+
 .portrait-frame {
     position: relative;
     height: 100%;
@@ -121,7 +239,8 @@
     background: conic-gradient(
         from 0deg,
         transparent 0deg,
-        var(--brand) 60deg,
+        var(--accent-a) 50deg,
+        var(--accent-b) 90deg,
         transparent 150deg,
         transparent 360deg
     );
@@ -140,16 +259,14 @@
 }
 
 @keyframes portrait-ring {
-    to {
-        transform: rotate(1turn);
-    }
+    to { transform: rotate(1turn); }
 }
 
 /* Responsive ------------------------------------------------------------- */
 @media (max-width: 900px) {
     .hero-grid {
         grid-template-columns: minmax(0, 1fr);
-        gap: 36px;
+        gap: 40px;
     }
 
     .hero-content {
@@ -159,16 +276,27 @@
     .hero-visual {
         order: 1;
         justify-content: flex-start;
+        padding: 14px 0 0 14px;
     }
 
     .portrait {
-        width: min(40vw, 160px);
+        width: min(40vw, 150px);
+    }
+
+    .portrait-corners {
+        --len: 16px;
+        inset: -14px;
     }
 }
 
 @media (max-width: 560px) {
     .hero {
-        padding-top: 32px;
+        padding-top: 28px;
+    }
+
+    .hero-badge {
+        font-size: 0.66rem;
+        letter-spacing: 0.06em;
     }
 
     .hero-actions .btn {
@@ -176,6 +304,6 @@
     }
 
     .portrait {
-        width: 120px;
+        width: 116px;
     }
 }

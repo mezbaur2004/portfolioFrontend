@@ -1,5 +1,6 @@
 import React from 'react';
 import profile from '../../lib/profile.json';
+import { externalProps } from '../../others/links.js';
 import '../../css/footer.css';
 
 const Footer = () => (
@@ -19,8 +20,7 @@ const Footer = () => (
                         key={social.label}
                         href={social.url}
                         className="social-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...externalProps(social.url)}
                         aria-label={social.label}
                     >
                         <i className={social.icon}></i>

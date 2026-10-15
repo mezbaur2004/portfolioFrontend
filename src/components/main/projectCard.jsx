@@ -1,12 +1,11 @@
 import React from 'react';
 import { deriveTech } from '../../others/tech.js';
+import { githubRepo } from '../../others/links.js';
 
 const ProjectCard = ({ project, delay = 0, visible = true }) => {
     const tech = deriveTech(project);
     const hasLinks = Boolean(project.link || project.gitHubLink);
-    const repoPath = project.gitHubLink
-        ? project.gitHubLink.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '')
-        : '';
+    const repo = githubRepo(project.gitHubLink) || githubRepo(project.link);
 
     return (
         <article
@@ -22,9 +21,17 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                         loading="lazy"
                     />
                 ) : (
-                    <div className="project-img project-img-placeholder" role="img" aria-label={`${project.title} — no screenshot`}>
-                        <i className="fa-solid fa-code" aria-hidden="true"></i>
-                        {repoPath && <span className="project-placeholder-repo">{repoPath}</span>}
+                    // Work with no interface to screenshot gets a blueprint
+                    // tile: drafting grid, corner marks and the repository.
+                    <div className="project-img blueprint" role="img" aria-label={`${project.title}, no screenshot`}>
+                        <span className="blueprint-grid" aria-hidden="true"></span>
+                        <span className="blueprint-corners" aria-hidden="true"></span>
+                        <span className="blueprint-content">
+                            <span className="blueprint-icon" aria-hidden="true">
+                                <i className="fa-solid fa-code"></i>
+                            </span>
+                            {repo && <span className="blueprint-repo">{repo}</span>}
+                        </span>
                     </div>
                 )}
             </div>
@@ -42,28 +49,28 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                 )}
 
                 {hasLinks && (
-                <div className="project-actions">
-                    {project.link && (
-                        <a
-                            className="btn btn-primary btn-sm"
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Live site <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    )}
-                    {project.gitHubLink && (
-                        <a
-                            className="btn btn-ghost btn-sm"
-                            href={project.gitHubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <i className="fa-brands fa-github"></i> Source
-                        </a>
-                    )}
-                </div>
+                    <div className="project-actions">
+                        {project.link && (
+                            <a
+                                className="btn btn-primary btn-sm"
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {project.linkLabel || 'Live site'} <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        )}
+                        {project.gitHubLink && (
+                            <a
+                                className="btn btn-ghost btn-sm"
+                                href={project.gitHubLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="fa-brands fa-github"></i> {project.gitHubLabel || 'Source'}
+                            </a>
+                        )}
+                    </div>
                 )}
             </div>
         </article>

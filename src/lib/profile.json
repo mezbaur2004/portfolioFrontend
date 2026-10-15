@@ -1,24 +1,33 @@
 {
   "name": "Mezbaur Are Rafi",
   "role": "Software Engineer",
+  "location": "Dhaka, Bangladesh",
   "photo": "https://i.postimg.cc/bJHvz2Qf/491356548-679795234547457-6482980502957883213-n.jpg",
   "cvLink": "https://drive.google.com/file/d/15xqoA_IhYagNkMReLqoMC-1SY_yAG60O/view",
+  "headline": {
+    "text": "Linux servers, backend services and the integrations between them.",
+    "accent": "integrations"
+  },
+  "intro": "I connect Shopify, Moodle, WordPress and payment gateways, and make sure the data moving through them stays correct in production. Mostly Node.js and TypeScript, plus whatever Moodle and WordPress require.",
   "techStack": [
-    "MERN",
+    "Linux",
+    "Nginx",
+    "Node.js",
+    "TypeScript",
+    "MongoDB",
+    "PostgreSQL",
     "Moodle",
-    "WooCommerce",
-    "Shopify",
-    "Linux"
+    "Shopify"
   ],
   "summary": [
-    "Software engineer with experience developing and maintaining production web applications, Learning Management Systems (LMS), and eCommerce platforms. Proficient in JavaScript and TypeScript across the MERN stack, and experienced in customizing Moodle LMS, extending WordPress and WooCommerce, integrating Shopify with custom backends, and building secure REST APIs. Comfortable working with authentication and authorization, payment gateway integrations, third-party systems, and both document and relational databases.",
-    "Beyond application development, experienced in Linux server administration, VPS management, deployment, performance optimization, backup and disaster recovery, and troubleshooting production environments. Enjoy solving complex technical challenges, improving system reliability, and delivering maintainable, well-documented solutions that provide long term value for both users and businesses."
+    "At Pedago Academy I'm the primary in-house software engineer. I administer the production Moodle LMS, maintain the WordPress/WooCommerce platform, build the Node.js integrations for payments, authentication and automation, and run the Linux VPS infrastructure underneath them.",
+    "Most of the work is making separate systems agree: a Shopify order with an SSLCommerz payment, a Zoom session with a Moodle attendance record. I debug through logs and SQL, test payment flows end to end against the gateway's sandbox, and write things down — 20+ technical documents so far, from SOPs and deployment guides to disaster recovery plans."
   ],
   "socials": [
     {
-      "label": "Facebook",
-      "url": "https://facebook.com/mezbaur2004",
-      "icon": "fa-brands fa-facebook"
+      "label": "Email",
+      "url": "mailto:mezbaur2004@gmail.com",
+      "icon": "fa-solid fa-envelope"
     },
     {
       "label": "LinkedIn",
@@ -29,6 +38,11 @@
       "label": "GitHub",
       "url": "https://github.com/mezbaur2004",
       "icon": "fab fa-github"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://facebook.com/mezbaur2004",
+      "icon": "fa-brands fa-facebook"
     }
   ]
 }

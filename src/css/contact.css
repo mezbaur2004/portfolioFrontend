@@ -1,3 +1,8 @@
+.contact-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
 .contact-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);

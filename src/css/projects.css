@@ -15,9 +15,8 @@
 }
 
 /* Card --------------------------------------------------------------------
-   Fixed regions top and bottom: the title and description take a set number
-   of lines, tags and actions sit on the bottom edge, and the flexible space
-   goes between them — so every card lines up. */
+   Tags and actions sit on the bottom edge and the flexible space goes above
+   them, so every card in a row lines up whatever the length of its copy. */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -25,52 +24,136 @@
     overflow: hidden;
 }
 
+/* The reveal fade keeps its stagger; the hover lift uses `translate` so it
+   never waits on that delay. */
+.project-card.reveal {
+    transition:
+        opacity 0.5s var(--ease) var(--reveal-delay, 0ms),
+        transform 0.5s var(--ease) var(--reveal-delay, 0ms),
+        translate 0.3s var(--ease),
+        border-color 0.2s var(--ease),
+        box-shadow 0.3s var(--ease);
+}
+
 .project-card:hover {
+    translate: 0 -3px;
     border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
 }
 
 .project-media {
+    position: relative;
     overflow: hidden;
     background: var(--surface-2);
     border-bottom: 1px solid var(--border);
 }
 
 .project-img {
+    display: block;
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     object-position: top center;
-    transition: transform 0.4s var(--ease);
+    transition: transform 0.5s var(--ease);
 }
 
-.project-card:hover .project-img {
-    transform: scale(1.02);
+.project-card:hover img.project-img {
+    transform: scale(1.025);
 }
 
-/* Stand-in for work with no screenshot — same media box, so the card height
-   matches every other card. */
-.project-img-placeholder {
+/* Blueprint tile ------------------------------------------------------------
+   Stand-in for work with no interface to screenshot: a drafting grid that
+   drifts while the card is hovered, viewfinder corners that close in, and
+   the repository path. Same media box, so card heights still match. */
+.blueprint {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, var(--brand-soft), transparent 75%),
+        var(--surface-2);
+}
+
+.blueprint-grid {
+    position: absolute;
+    inset: 0;
+    /* 40px major lines over a fainter 8px minor grid */
+    --minor: color-mix(in srgb, var(--grid-line) 45%, transparent);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(var(--minor) 1px, transparent 1px),
+        linear-gradient(90deg, var(--minor) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%);
+    mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%);
+    animation: grid-pan 14s linear infinite;
+    animation-play-state: paused;
+}
+
+.project-card:hover .blueprint-grid {
+    animation-play-state: running;
+}
+
+/* One full 40px tile, so the loop is seamless. Background-position, not
+   transform, so the fade-out mask stays put while the lines move. */
+@keyframes grid-pan {
+    to { background-position: 40px 40px, 40px 40px, 40px 40px, 40px 40px; }
+}
+
+.blueprint-corners {
+    --len: 14px;
+    inset: 18px;
+    opacity: 0.7;
+    transition: inset 0.45s var(--ease-out), opacity 0.3s var(--ease);
+}
+
+.project-card:hover .blueprint-corners {
+    inset: 12px;
+    opacity: 1;
+}
+
+.blueprint-content {
+    position: relative;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 0 20px;
-    color: var(--text-3);
-    font-size: 1.4rem;
+    gap: 12px;
+    max-width: 100%;
+    padding: 0 36px;
 }
 
-.project-placeholder-repo {
+.blueprint-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--brand-ink);
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.project-card:hover .blueprint-icon {
+    transform: translateY(-2px);
+}
+
+.blueprint-repo {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    /* text-2, not text-3: the tile's centre glow would take text-3 under AA */
+    color: var(--text-2);
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-}
-
-.project-card:hover .project-img-placeholder {
-    transform: none;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
 }
 
 .project-body {
@@ -84,23 +167,21 @@
     font-size: 1.02rem;
     font-weight: 600;
     line-height: 1.4;
-    min-height: calc(2 * 1.4em);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
+/* Not clamped: these descriptions carry status details (sandbox-tested,
+   in review) that must not be cut off. The min-height keeps short copy from
+   pulling the tags up; equal rows come from the grid. */
 .project-desc {
     margin-top: 8px;
     color: var(--text-2);
     font-size: 0.92rem;
     line-height: 1.7;
     min-height: calc(4 * 1.7em);
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 /* auto pushes tags + actions onto the bottom edge of every card */
@@ -123,27 +204,20 @@
     margin-top: auto;
 }
 
-/* Cards narrow as the viewport does while the copy stays the same length,
-   so the description gets one more line before the single-column layout
-   drops the clamp entirely. */
-@media (max-width: 1200px) and (min-width: 901px) {
-    .project-desc {
-        min-height: calc(5 * 1.7em);
-        -webkit-line-clamp: 5;
-    }
-}
-
-/* One card per row: show the full copy; grid-auto-rows still keeps heights
-   matched so the stack reads as one set. */
+/* One card per row: nothing sits beside a card to line up with, so each
+   takes its natural height instead of the tallest card's. */
 @media (max-width: 900px) {
     .projects-grid {
         grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: auto;
     }
 
-    .project-title,
     .project-desc {
-        display: block;
         min-height: 0;
+    }
+
+    .project-title {
+        display: block;
         overflow: visible;
     }
 }
@@ -155,5 +229,11 @@
 
     .project-actions .btn {
         flex: 1 1 auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card:hover {
+        translate: none;
     }
 }
