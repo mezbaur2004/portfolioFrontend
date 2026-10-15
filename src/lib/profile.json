@@ -30,6 +30,12 @@
       "icon": "fa-solid fa-envelope"
     },
     {
+      "label": "WhatsApp",
+      "url": "https://wa.me/8801539316169",
+      "display": "+880 1539-316169",
+      "icon": "fa-brands fa-whatsapp"
+    },
+    {
       "label": "LinkedIn",
       "url": "https://linkedin.com/in/mezbaur2004",
       "icon": "fab fa-linkedin"

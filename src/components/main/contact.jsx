@@ -39,7 +39,7 @@ const Contact = () => {
                                 </span>
                                 <span className="contact-link-text">
                                     <span className="contact-link-label">{social.label}</span>
-                                    <span className="contact-link-url">{readableUrl(social.url)}</span>
+                                    <span className="contact-link-url">{social.display || readableUrl(social.url)}</span>
                                 </span>
                                 <i className="fa-solid fa-arrow-up-right-from-square contact-link-go"></i>
                             </a>
