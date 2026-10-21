@@ -14,6 +14,13 @@
     "image": ""
   },
   {
+    "title": "Moodle Leaderboard",
+    "description": "Moodle activity, built for Pedago Academy, that ranks students by points from grades they can already see, so it never reveals marks early: fewer points for late assignments, optional Zoom attendance points, group and anonymous modes, Moodle app support, and added automatically to every new course. Designed, reviewed and tested by me; implementation AI-assisted.",
+    "link": "",
+    "gitHubLink": "https://github.com/mezbaur2004/moodle-leaderboard",
+    "image": ""
+  },
+  {
     "title": "Moodle Patch Manager",
     "description": "Moodle plugins that apply, verify and roll back patches to third-party plugins on a production site: dry runs, pristine backups, audit history and a CLI-first workflow. The first pack fixes the Zoom plugin's duration-based grading. Designed, reviewed and tested by me; implementation AI-assisted.",
     "link": "",
@@ -29,7 +36,7 @@
   },
   {
     "title": "Upstream fix for Moodle's Zoom plugin",
-    "description": "Reported that Moodle's Zoom plugin records attendance for recurring meetings but never grades it, and argued for a fix over removing the feature. The maintainer agreed to a focused PR that grades each occurrence; it passes CI and is in review.",
+    "description": "Reported that Moodle's Zoom plugin records attendance for recurring meetings but never grades it, and proposed a fix. After discussing it with the maintainer, I opened a focused PR that grades each occurrence; it passes CI and is in review.",
     "link": "https://github.com/jrchamp/moodle-mod_zoom/pull/730",
     "linkLabel": "Pull request",
     "gitHubLink": "https://github.com/jrchamp/moodle-mod_zoom/issues/728",
