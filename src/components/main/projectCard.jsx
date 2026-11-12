@@ -27,7 +27,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                         <span className="blueprint-grid" aria-hidden="true"></span>
                         <span className="blueprint-content">
                             <span className="blueprint-icon" aria-hidden="true">
-                                <i className="fa-solid fa-code"></i>
+                                <i className="fa-solid fa-code" aria-hidden="true"></i>
                             </span>
                             {repo && <span className="blueprint-repo">{repo}</span>}
                         </span>
@@ -56,7 +56,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {project.linkLabel || 'Live site'} <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                                {project.linkLabel || 'Live site'} <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                             </a>
                         )}
                         {project.gitHubLink && (
@@ -66,7 +66,7 @@ const ProjectCard = ({ project, delay = 0, visible = true }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <i className="fa-brands fa-github"></i> {project.gitHubLabel || 'Source'}
+                                <i className="fa-brands fa-github" aria-hidden="true"></i> {project.gitHubLabel || 'Source'}
                             </a>
                         )}
                     </div>

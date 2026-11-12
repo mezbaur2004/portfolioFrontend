@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import profile from '../../lib/profile.json';
 import ThemeToggle from './themeToggle.jsx';
 import useActiveSection from '../../others/useActiveSection.js';
-import '../../css/navbar.css';
 
 const links = [
     { id: 'about', label: 'About' },
@@ -13,6 +15,10 @@ const links = [
 ];
 
 const sectionIds = links.map((link) => link.id);
+
+// Section links go through next/link rather than plain anchors: a plain hash
+// link adds a history entry the Next router knows nothing about, and pressing
+// Back onto it from another page would change the URL but not the page.
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -37,20 +43,20 @@ const Navbar = () => {
     return (
         <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
             <div className="container site-header-inner">
-                <a href="#top" className="brand" onClick={() => setOpen(false)}>
+                <Link href="#top" className="brand" onClick={() => setOpen(false)}>
                     <span className="brand-mark">&lt;/&gt;</span>
                     <span className="brand-name">Rafi</span>
-                </a>
+                </Link>
 
                 <nav className="nav-desktop" aria-label="Sections">
                     {links.map((link) => (
-                        <a
+                        <Link
                             key={link.id}
                             href={`#${link.id}`}
                             className={`nav-link ${active === link.id ? 'is-active' : ''}`}
                         >
                             {link.label}
-                        </a>
+                        </Link>
                     ))}
                 </nav>
 
@@ -63,7 +69,7 @@ const Navbar = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <i className="fa-solid fa-download"></i> Resume
+                        <i className="fa-solid fa-download" aria-hidden="true"></i> Resume
                     </a>
 
                     <button
@@ -83,15 +89,15 @@ const Navbar = () => {
             <div className="nav-mobile" id="mobile-nav" hidden={!open}>
                 <div className="container nav-mobile-inner">
                     {links.map((link) => (
-                        <a
+                        <Link
                             key={link.id}
                             href={`#${link.id}`}
                             className={`nav-mobile-link ${active === link.id ? 'is-active' : ''}`}
                             onClick={() => setOpen(false)}
                         >
                             {link.label}
-                            <i className="fa-solid fa-arrow-right"></i>
-                        </a>
+                            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </Link>
                     ))}
                     <a
                         className="btn btn-primary nav-mobile-cv"
@@ -100,7 +106,7 @@ const Navbar = () => {
                         rel="noopener noreferrer"
                         onClick={() => setOpen(false)}
                     >
-                        <i className="fa-solid fa-download"></i> Download Resume
+                        <i className="fa-solid fa-download" aria-hidden="true"></i> Download Resume
                     </a>
                 </div>
             </div>

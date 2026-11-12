@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import useReveal from '../../others/useReveal.js';
 

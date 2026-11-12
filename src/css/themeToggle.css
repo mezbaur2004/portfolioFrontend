@@ -36,7 +36,12 @@
     color: var(--text);
 }
 
-.theme-option.is-active {
+/* data-theme-pref is set on <html> by the inline theme script, so the stored
+   choice shows as selected before React hydrates and adds .is-active. */
+.theme-option.is-active,
+:root[data-theme-pref='light'] .theme-option[data-option='light'],
+:root[data-theme-pref='dark'] .theme-option[data-option='dark'],
+:root[data-theme-pref='system'] .theme-option[data-option='system'] {
     color: var(--text-strong);
     background: var(--surface-2);
     box-shadow: inset 0 0 0 1px var(--border-strong);

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import profile from '../../lib/profile.json';
 import experience from '../../lib/experience.json';
 import { externalProps } from '../../others/links.js';
 import Backdrop from './backdrop.jsx';
-import '../../css/hero.css';
 
 // The current role, if any, drives the live badge: "Assistant Programmer at
 // Pedago Academy". Comes from experience.json, so it updates with the data.
@@ -55,11 +54,11 @@ const Hero = () => (
                 </ul>
 
                 <div className="hero-actions rise" style={step(6)}>
-                    <Link to="/contact" className="btn btn-primary">
-                        Get in touch <i className="fa-solid fa-arrow-right"></i>
+                    <Link href="/contact" className="btn btn-primary">
+                        Get in touch <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </Link>
                     <a className="btn btn-ghost" href={profile.cvLink} {...externalProps(profile.cvLink)}>
-                        <i className="fa-solid fa-download"></i> Download CV
+                        <i className="fa-solid fa-download" aria-hidden="true"></i> Download CV
                     </a>
                 </div>
 
@@ -72,7 +71,7 @@ const Hero = () => (
                             aria-label={social.label}
                             {...externalProps(social.url)}
                         >
-                            <i className={social.icon}></i>
+                            <i className={social.icon} aria-hidden="true"></i>
                         </a>
                     ))}
                 </div>

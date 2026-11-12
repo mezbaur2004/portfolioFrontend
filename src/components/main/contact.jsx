@@ -1,11 +1,12 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import profile from '../../lib/profile.json';
 import Backdrop from './backdrop.jsx';
 import { externalProps, readableUrl } from '../../others/links.js';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
-import '../../css/contact.css';
 
 const Contact = () => {
     const [ref, visible] = useReveal();
@@ -21,8 +22,8 @@ const Contact = () => {
                             title="Get in Touch"
                             sub="Send a message through the form, or reach me on any of these."
                         />
-                        <Link to="/contact" className="btn btn-primary">
-                            Send a message <i className="fa-solid fa-paper-plane"></i>
+                        <Link href="/contact" className="btn btn-primary">
+                            Send a message <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
                         </Link>
                     </div>
 
@@ -35,13 +36,13 @@ const Contact = () => {
                                 {...externalProps(social.url)}
                             >
                                 <span className="contact-link-icon">
-                                    <i className={social.icon}></i>
+                                    <i className={social.icon} aria-hidden="true"></i>
                                 </span>
                                 <span className="contact-link-text">
                                     <span className="contact-link-label">{social.label}</span>
                                     <span className="contact-link-url">{social.display || readableUrl(social.url)}</span>
                                 </span>
-                                <i className="fa-solid fa-arrow-up-right-from-square contact-link-go"></i>
+                                <i className="fa-solid fa-arrow-up-right-from-square contact-link-go" aria-hidden="true"></i>
                             </a>
                         ))}
                     </div>

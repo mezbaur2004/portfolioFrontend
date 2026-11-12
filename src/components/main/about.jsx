@@ -1,8 +1,9 @@
+'use client';
+
 import React from 'react';
 import profile from '../../lib/profile.json';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
-import '../../css/about.css';
 
 const About = () => {
     const [ref, visible] = useReveal();
