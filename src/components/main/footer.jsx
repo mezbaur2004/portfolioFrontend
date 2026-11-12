@@ -1,7 +1,7 @@
 import React from 'react';
 import profile from '../../lib/profile.json';
 import { externalProps } from '../../others/links.js';
-import '../../css/footer.css';
+import CurrentYear from './currentYear.jsx';
 
 const Footer = () => (
     <footer className="site-footer">
@@ -23,13 +23,13 @@ const Footer = () => (
                         {...externalProps(social.url)}
                         aria-label={social.label}
                     >
-                        <i className={social.icon}></i>
+                        <i className={social.icon} aria-hidden="true"></i>
                     </a>
                 ))}
             </div>
 
             <p className="footer-copy">
-                &copy; {new Date().getFullYear()} {profile.name}
+                &copy; <CurrentYear initial={new Date().getFullYear()} /> {profile.name}
             </p>
         </div>
     </footer>

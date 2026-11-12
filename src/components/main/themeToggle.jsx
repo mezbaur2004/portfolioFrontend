@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react';
 import useTheme from '../../others/useTheme.js';
-import '../../css/themeToggle.css';
 
 const options = [
     { value: 'light', label: 'Light', icon: 'fa-solid fa-sun' },
@@ -21,6 +22,7 @@ const ThemeToggle = () => {
                         key={option.value}
                         type="button"
                         className={`theme-option ${active ? 'is-active' : ''}`}
+                        data-option={option.value}
                         aria-pressed={active}
                         aria-label={`${option.label} theme`}
                         title={`${option.label} theme`}

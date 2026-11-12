@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import projects from '../../lib/projects.json';
 import ProjectCard from './projectCard.jsx';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
-import '../../css/projects.css';
 
 const Projects = () => {
     const [ref, visible] = useReveal();
@@ -33,8 +34,8 @@ const Projects = () => {
 
                 {projects.length > 4 && (
                     <div className="projects-more">
-                        <Link to="/all-projects" className="btn btn-ghost">
-                            View all {projects.length} projects <i className="fa-solid fa-arrow-right"></i>
+                        <Link href="/all-projects" className="btn btn-ghost">
+                            View all {projects.length} projects <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </Link>
                     </div>
                 )}

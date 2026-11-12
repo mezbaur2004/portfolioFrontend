@@ -1,13 +1,13 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import projects from '../lib/projects.json';
 import PageTopbar from '../components/main/pageTopbar.jsx';
 import ProjectCard from '../components/main/projectCard.jsx';
 import SectionHeading from '../components/main/sectionHeading.jsx';
 import Footer from '../components/main/footer.jsx';
 import useReveal from '../others/useReveal.js';
-import '../css/projects.css';
-import '../css/allProjects.css';
 
 const AllProjects = () => {
     const [ref, visible] = useReveal();
@@ -36,8 +36,8 @@ const AllProjects = () => {
                     </div>
 
                     <div className="allprojects-foot">
-                        <Link to="/" className="btn btn-ghost">
-                            <i className="fa-solid fa-arrow-left"></i> Back to portfolio
+                        <Link href="/" className="btn btn-ghost">
+                            <i className="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to portfolio
                         </Link>
                     </div>
                 </div>

@@ -1,10 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import profile from '../../lib/profile.json';
 import { externalProps } from '../../others/links.js';
 import SectionHeading from './sectionHeading.jsx';
-import '../../css/contact-form.css';
 
 const emptyForm = { name: '', email: '', message: '' };
 
@@ -59,7 +60,7 @@ const ContactForm = () => {
                                 {...externalProps(social.url)}
                                 aria-label={social.label}
                             >
-                                <i className={social.icon}></i>
+                                <i className={social.icon} aria-hidden="true"></i>
                             </a>
                         ))}
                     </div>
@@ -69,12 +70,12 @@ const ContactForm = () => {
                     {status === 'sent' ? (
                         <div className="form-success">
                             <span className="form-success-icon">
-                                <i className="fa-solid fa-check"></i>
+                                <i className="fa-solid fa-check" aria-hidden="true"></i>
                             </span>
                             <h3>Message sent</h3>
                             <p>Thanks for reaching out — I&apos;ll get back to you as soon as I can.</p>
                             <div className="form-success-actions">
-                                <Link to="/" className="btn btn-primary">
+                                <Link href="/" className="btn btn-primary">
                                     Back to portfolio
                                 </Link>
                                 <button
@@ -129,7 +130,7 @@ const ContactForm = () => {
 
                             {status === 'error' && (
                                 <p className="form-error">
-                                    <i className="fa-solid fa-circle-exclamation"></i>
+                                    <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
                                     Something went wrong sending that. Please try again, or reach me on LinkedIn.
                                 </p>
                             )}
@@ -140,7 +141,7 @@ const ContactForm = () => {
                                 disabled={status === 'sending'}
                             >
                                 {status === 'sending' ? 'Sending…' : 'Send message'}
-                                <i className="fa-solid fa-paper-plane"></i>
+                                <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
                             </button>
                         </form>
                     )}

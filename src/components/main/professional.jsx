@@ -1,8 +1,9 @@
+'use client';
+
 import React from 'react';
 import experiences from '../../lib/experience.json';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
-import '../../css/professional.css';
 
 const Professional = () => {
     const [ref, visible] = useReveal();

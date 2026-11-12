@@ -1,8 +1,9 @@
+'use client';
+
 import React from 'react';
 import skillGroups from '../../lib/skills.json';
 import SectionHeading from './sectionHeading.jsx';
 import useReveal from '../../others/useReveal.js';
-import '../../css/skills.css';
 
 // Each group stores its items as one comma-separated string in skills.json;
 // split for display only, so the data file stays the source of truth.
@@ -28,7 +29,7 @@ const Skills = () => {
                             style={{ '--reveal-delay': `${index * 90}ms` }}
                         >
                             <div className="skill-icon">
-                                <i className={group.icon}></i>
+                                <i className={group.icon} aria-hidden="true"></i>
                             </div>
                             <h3 className="skill-title">{group.title}</h3>
                             <ul className="skill-items chip-row">
