@@ -5,10 +5,14 @@ import experience from '../../lib/experience.json';
 import { externalProps } from '../../others/links.js';
 import Backdrop from './backdrop.jsx';
 
-// The current role, if any, drives the live badge: "Assistant Programmer at
-// Pedago Academy". Comes from experience.json, so it updates with the data.
+// The current role, if any, drives the badge: "Software Engineer at Pedago
+// Academy". Comes from experience.json, so it updates with the data; an
+// optional heroRole sets the title shown here without changing the job's
+// title in the Experience section.
 const current = experience.find((job) => /present/i.test(job.period));
-const badge = current ? `${current.role} at ${current.company.split(',')[0]}` : '';
+const badge = current
+    ? `${current.heroRole || current.role} at ${current.company.split(',')[0]}`
+    : '';
 
 // Split the headline around its accent phrase so the phrase can be drawn on.
 const { text: headline, accent } = profile.headline;
